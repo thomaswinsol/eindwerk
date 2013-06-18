@@ -7,7 +7,6 @@ $this->headScript()->captureStart();
 $(document).ready(function() {
 
  function initUploadify(elem){
-                   alert("ok");
                 $('#'+elem).uploadify({
                     'uploader'  : '/base/js/uploadify/uploadify.swf',
                     'script'    : '<?php echo $this->url(array('module'=>'admin', 'controller' => 'foto','action' => 'ajax-upload')); ?>',
