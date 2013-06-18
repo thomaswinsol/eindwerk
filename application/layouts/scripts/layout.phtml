@@ -1,0 +1,69 @@
+<!doctype>
+<?php
+header('Content-Type: text/html; charset=utf-8');
+echo '<?xml version="1.0" encoding="UTF-8" ?>'.PHP_EOL;
+echo $this->doctype().PHP_EOL; ?>
+<html>    
+    <head>
+        <title>Eindwerk SyntraWest - Webmaster Advanced - Webwinkel - Thomas Vanhuysse</title>
+        <link href="/css/style.css" rel="stylesheet" />
+        <?php
+            echo $this->jQuery().PHP_EOL;
+            echo $this->headScript();
+        ?>
+    </head>
+    
+    <body>
+        
+        <div id="container">
+            <aside>
+                <div class="logo">
+                 <figure>
+                        <img src="/images/logo.jpg" width="100" alt="Logo">
+                 </figure>
+                </div>
+                <br/>
+                <div class="firma">
+                    <?php
+                        if (isset($_SESSION['context']['Firma'])) {
+                            echo $this->ShowFirm($_SESSION['context']['Firma']);
+                        }
+                    ?>
+                </div>
+                <div class="winkelmand">
+                    <?php
+                        if (isset($_SESSION['context']['winkelmand'])) {
+                            echo $this->toonWinkelmand($_SESSION['context']['winkelmand']);
+                        } else {
+                            echo $this->toonWinkelmand(null);
+                        }
+                    ?>
+                </div>
+            </aside>
+            <header>
+                 <nav>
+                    <?php
+                    $partial = array('menu.phtml', 'default');
+                    $this->navigation()->menu()->setPartial($partial);
+                    ?>                    
+                    <?php echo $this->navigation()->menu()->addPageClassToLi(true); ?>
+                    <br />
+                </nav>
+                            <div id="lang">                            
+                            <?php echo $this->toonLocale(); ?>
+                            </div>
+                            <div class="login">
+                                <?php echo $this->signupForm($this->signupForm); ?>
+                            </div>
+             </header>
+            <section id="content">
+
+                <div id="mainTitle"><?php echo $this->placeholder('mainTitle') ?></div>
+
+                <?php echo $this->layout()->content; ?>
+            </section>    
+        </div>
+    </body>
+</html>
+
+

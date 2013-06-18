@@ -1,0 +1,43 @@
+<?php
+$counter=0;
+if (!empty($this->producten)) {
+?>
+<div class="promoblokken">
+<?php
+    foreach($this->producten as $p){
+                $counter++;
+?>
+<div class="l_prom_new">
+    <div class="l_prom_top_g_new">
+        <?php if ($p['status']==3) { ?>
+        <div class="l_iconset">
+            <img src="/images/promoblok/orange.png" alt="">
+        </div>
+        <?php echo $this->translate("txtProductInDeKijker"); ?>
+        <?php } ?>
+    </div>
+    <div class="l_prom_mid" align="center" style="height: 210px; ">
+        <div class="l_fotobox">
+            <a href="<?php echo $this->url(array('controller'=>'index' , 'action'=>'productinfo', 'id'=>$p['id']) ); ?>">
+            <?php echo $this->getFoto($p['id']); ?>
+            </a>
+        </div>
+        <div class="l_Titels">
+             <a href="<?php echo $this->url(array('controller'=>'index' , 'action'=>'productinfo', 'id'=>$p['id']) ); ?>">
+             <?php echo !empty($p['titel'])?$p['titel']:$p['label']; ?>
+             </a>
+             <?php echo $this->getCategorie($p['id']); ?>
+        </div>
+    </div>
+    <div class="l_prom_bottom_new">
+        <img width="1" height="1" src="/images/promoblok/empty.png" alt="">
+    </div>
+</div>
+<?php 
+    }
+?>
+</div>
+<?php
+}
+?>
+

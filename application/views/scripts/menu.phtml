@@ -1,0 +1,7 @@
+<?php
+foreach ($this->container as $page)
+{
+    
+    echo '<li><a href="' . $page->href . '">' . $this->translate($page->label) . '</a></li>', PHP_EOL;
+}
+ ?>

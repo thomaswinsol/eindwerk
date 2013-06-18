@@ -1,0 +1,12 @@
+<nav style="float:left; width:900px;">
+    <?php echo $this->form; ?>
+</nav>
+
+<?php
+$this->placeholder('mainTitle')->set($this->ShowMessages($this->flashMessenger));
+?>
+
+<section id="producten" style="margin-left:25px; width:100%" >
+ <?php echo $this->partial('partials/producten.phtml',$this->module,array('producten'=>$this->producten)); ?>
+</section>
+<?php echo $this->render('/index/_jsCustom_home.phtml'); ?>

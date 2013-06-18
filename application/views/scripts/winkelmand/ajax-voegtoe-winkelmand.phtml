@@ -1,0 +1,10 @@
+<?php
+if (!$this->error) {
+    if (isset($this->winkelmand)) {
+      echo $this->toonWinkelmand($this->winkelmand);
+    }
+}
+else {
+    echo $this->error;
+}
+?>

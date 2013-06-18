@@ -1,0 +1,17 @@
+<?php
+// ---------------------------------
+// JAVASCRIPT
+// --------------------------------- 
+$this->jQuery()->onLoadCaptureStart(); ?>
+
+        // Winkelmand bestellen
+       $("#Winkelmandbestellen").click(function(event) {
+         if (!confirm('<?php echo $this->translate('txtBevestigingBestellingWinkelmand');?>?')) {
+             event.preventDefault();
+     	     return;
+         }
+       });
+       
+<?php 
+$this->jQuery()->onLoadCaptureEnd();
+?>

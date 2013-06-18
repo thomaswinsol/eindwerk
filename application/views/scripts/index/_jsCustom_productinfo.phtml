@@ -1,0 +1,57 @@
+<?php
+// ---------------------------------
+// JAVASCRIPT
+// --------------------------------- 
+$this->jQuery()->onLoadCaptureStart(); ?>
+
+         $(document).ready(function() {
+             $('#Aantal').focus();
+         });
+
+        $(document).on("keyup", ".onlyDecimals", function() {
+            var newValue = $(this).val().replace(/[^0-9\.,]/g,'');
+            $(this).val(newValue);
+        });
+
+        // Winkelmand bestellen
+       $("#Winkelmandbestellen").click(function(event) {
+         if (!confirm('<?php echo $this->translate('txtBevestigingBestellingWinkelmand');?>?')) {
+             event.preventDefault();
+     	     return;
+         }
+       });
+
+        // Voeg toe aan winkelmand
+       $("#VoegToe").click(function(event) {
+     	event.preventDefault();
+     	$("#divLoading").html('<img src="/base/images/icons/loader_02.gif" /><BR> Loading, please wait...');
+        $("#VoegToe").hide();
+        var myForm    =  $(this).closest('form');
+        var formId    =  myForm.attr('id');
+        var formdata  = myForm.serialize();
+
+        $.ajax({
+          type: "POST",
+          dataType: "json",
+          url: "<?php echo $this->baseUrl() . '/winkelmand/ajax-voegtoe-winkelmand/'; ?>",
+          dataType: "html",
+          data: {data: formdata },
+          success: function(html){
+                            if (html == '1') {
+                                alert("<?php echo $this->translate('txtAlert1'); ?>");
+                            }
+                            else {
+                                //location.href="/index/home/";
+                                $('.winkelmand').empty().append(html);
+                                $('#Aantal').val("");
+                                //$('.mainTitle').empty().append("<?php echo ($this->translate('txtToegevoegd')); ?>");
+                            }
+                            $("#VoegToe").show();
+                            $("#divLoading").html('');
+          		}
+           });
+	   return false;
+       });
+<?php 
+$this->jQuery()->onLoadCaptureEnd();
+?>

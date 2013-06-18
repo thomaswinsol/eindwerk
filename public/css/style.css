@@ -1,0 +1,315 @@
+*{margin:0px;padding:0px;}
+body {color:#666; font-size: 12px; font-family: Verdana, sans-serif; background-color:whitesmoke;}
+#container{margin:0 0 0 10; width:1200px; font-size: 12px;}
+aside { float:left; width:175px;}
+header {margin-left:10px;width:900px;float:left;}
+#lang { float:left; width:50px; }
+header nav {width:550px;margin-top:10px; float:left; margin-left:10px; }
+nav li {list-style-type:none; font-size:14px; height:50px; display:inline; margin-left:10px;}
+nav ul li.active{color:red;}
+
+#content{width:900px;float:left;}
+
+table.frm_01 , .frm_02{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size:  95%;
+	border-collapse: collapse;
+	background-color:#EDECEF;
+	margin-left:25px;
+	border-top:1px solid gray;
+	border-bottom:1px solid gray;
+	margin-top:0px;
+	caption-side:top;
+	width:90%;
+	color:black;
+}
+table.frm_02{
+        margin-left:1px;
+        width:80%;
+}
+
+table.frm_01 caption {
+	  margin-left:50px;  }
+
+table.frm_01 tr{
+	color:black;
+}
+
+table.frm_01 tr.odd{
+	/* background-color: #FFFFFF; */
+}
+
+table.frm_01 td{
+	border: 1px dotted #CCCCCC;
+	color:black;
+}
+
+table.frm_01 tbody th{
+	padding: 2px 5px;
+	font-weight:bold;
+	white-space: nowrap;
+	background-color:#EDECEF;;
+	color:black;
+	border-color:#DEDEDE;
+	text-align:right;
+	width:50px;
+}
+
+table.frm_01 tbody td{
+	 padding: 2px 5px;
+	 vertical-align:middle;
+}
+
+table.frm_01 tbody td.price{
+	 text-align:right;
+}
+
+table.frm_01 tfoot{
+	border-top:1px dashed black;
+}
+
+table.frm_01 tfoot tr{
+	 background-color:#FFFFFF;
+}
+
+table.frm_01 tfoot th{
+	font-size: 110%;
+	text-align: right;
+	padding-right: 0.5em;
+	letter-spacing: 1px;
+}
+
+table.frm_01 tfoot td{
+	text-align: left;
+	padding: 0.5em;
+}
+
+table.frm_01 tfoot td.price{
+	 text-align:right;
+}
+
+table.frm_01 th .required
+{
+    background-image:url(../base/images/icons/required-field.png);
+    background-position:top right;
+    background-repeat:no-repeat;
+    padding-right:15px;
+}
+
+table.frm_01 input[disabled] {
+	border: 0px solid #999;
+	color:black;
+	font-size:  130%;
+	background-color:#EDECEF;
+}
+table.frm_01 textarea[disabled] {
+	border: 1px solid #000;
+	color:black;
+	background-color:#EDECEF;
+	resize:none;
+}
+table.frm_01 select[disabled] {
+	border: 0px solid #000;
+	color:black;
+	background-color:#EDECEF;
+}
+
+#container .mainTitle{
+        height:20px;
+	margin-bottom:20px;
+        margin-top:5px;
+        text-align:center;
+        width:970px;
+}
+
+fieldset {
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        background-color : #EDECEF;
+        border : 1px solid #666;
+        width:50%;
+        margin-left:10px;
+        float:right;
+        padding-bottom: 10px;
+}
+
+legend {
+       margin-left:10px;
+       font-weight: bold;
+}
+nav {
+    float:left;
+    width:300px;
+}
+
+section {
+    float:left;
+}
+
+div.productinfo {
+    border:1px solid #C9C9C9;
+    margin-left:50px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    float:left;
+    background-color: #fff;
+}
+
+div.voegtoe {
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    float:left;
+}
+
+p.productinfo {
+    text-decoration: underline;
+}
+
+div.winkelmand {
+    margin-top:15px;
+}
+
+.winkelmandempty {
+    text-align:left;
+}
+div.winkelmand li {
+    list-style-type:none;
+    display:inline;
+    margin-left:10px;
+}
+
+h1  {
+    margin-left:25px;
+    margin-bottom:10px;
+}
+
+h1.productinfo{
+     background-color:#DEDEDE;
+     -moz-border-radius: 5px;
+     border-radius: 5px;
+     text-align:center;
+     margin-left:0px;
+}
+
+div.login {
+        margin-top:20px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        background : #fff;
+        border : 1px solid #666;
+        width:270px;
+        float:right;
+        padding-bottom: 10px;
+        padding-left:10px;
+        padding-top:10px;
+}
+
+.promoblokken {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+}
+.l_prom_new {
+    cursor: pointer;
+    float: left;
+    margin: 0 10px 10px 0;
+    width: 209px;
+}
+.l_prom_top_g_new {
+    background-image: url("/images/promoblok/spc_top.png");
+    background-repeat: no-repeat;
+    clear: both;
+    color: #000000;
+    font-size: 12px;
+    font-weight: bold;
+    height: 28px;
+    line-height: 30px;
+    text-align: left;
+    text-transform: capitalize;
+    width: 209px;
+}
+.l_iconset {
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    width: 20px;
+}
+.l_prom_mid {
+    background-image: url("/images/promoblok/spc_bg.png");
+    background-repeat: repeat-y;
+    height: 210px !important;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 10px;
+    position: relative;
+    width: 209px;
+}
+
+.l_fotobox {
+    height: 120px;
+    text-align: center;
+    width: 180px;
+}
+
+.l_Titels {
+    float: left;
+    padding-left: 5px;
+    padding-top: 10px;
+    text-align: center;
+    width: 180px;
+}
+.l_prom_bottom_new {
+    background-color: #FFFFFF;
+    background-image: url("/images/promoblok/spc_bottom.png");
+    background-repeat: no-repeat;
+    clear: both;
+    height: 10px;
+    overflow: hidden;
+    width: 209px;
+}
+
+textarea.productinfo {
+    width:400px;
+    height:100px;
+    background-color:#fff;
+    resize:none;
+    border: 0px;
+}
+
+.btnbasket {
+    background-image: url(/base/images/icons/icon_basket.png); /* 16px x 16px */
+    background-color: transparent; /* make the button transparent */
+    background-repeat: no-repeat;  /* make the background image appear only once */
+    background-position: 0px 0px;  /* equivalent to 'top left' */
+    border: none;           /* assuming we don't want any borders */
+    cursor: pointer;        /* make the cursor like hovering over an <a> element */
+    height: 16px;           /* make this the size of your image */
+    padding-left: 16px;     /* make text start to the right of the image */
+    vertical-align: middle; /* align the text vertically centered */
+}
+
+.msg_error{
+	border:1px dashed darkred;
+	padding:0px;
+	text-align:left;
+	color:#fff;
+	margin-left:25px;
+	background-color: darkred;
+}
+
+.msg_ok{
+	border:1px solid black;
+	padding:0px;
+	text-align:left;
+	color:#fff;
+	background-color:darkgreen;
+	margin-left:25px;
+}
+
+#productform {
+    float:left;
+    width:70%;
+}

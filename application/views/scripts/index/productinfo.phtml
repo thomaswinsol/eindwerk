@@ -1,0 +1,68 @@
+<div class="productinfo">
+<h1 class="productinfo"><?php echo $this->escape($this->product['titel']); ?></h1>
+
+<p class="productinfo">
+<?php echo $this->translate('txtLabel');?>:
+</p>
+<?php echo($this->product['label']); ?>
+<br/>
+<br/>
+
+<p class="productinfo">
+<?php echo $this->translate('txtTitel');?>:
+</p>
+<?php echo $this->escape($this->product['titel']); ?>
+<br/>
+<br/>
+
+<p class="productinfo">
+<?php echo $this->translate('txtTeaser');?>:
+</p>
+<?php echo $this->escape($this->product['teaser']); ?>
+<br/>
+<br/>
+
+<p class="productinfo">
+<?php echo $this->translate('txtPrijs');?>:
+</p>
+<?php echo $this->ShowCurrency($this->product['eenheidsprijs']); ?>
+<br/>
+<br/>
+
+<p class="productinfo">
+<?php echo $this->translate('txtBeschrijving');?>:
+</p>
+<textarea class="productinfo" readonly>
+<?php echo $this->escape(($this->product['teaser'])); ?>
+</textarea>
+<br/>
+<br/>
+<p class="productinfo">
+<?php echo $this->translate('txtCategorie');?>:
+</p>
+<?php
+    if (!empty($this->categorie)) {
+        foreach($this->categorie as $c) {
+            echo $this->escape($c['label'])."<br/>";
+        }
+        echo "<br/>";
+    }
+?>
+<p class="productinfo">
+<?php echo $this->translate('txtFoto');?>:
+</p>
+<?php
+    if (!empty($this->fotos)) {
+        foreach($this->fotos as $f) {
+?>
+            <img height="120" src="<?php echo "/".$this->escape($f['filePath']).$this->escape($f['fileName']); ?>"><br/>
+<?php
+       }
+    }
+?>
+</div>
+<div class="voegtoe">
+    <?php echo $this->form; ?>
+</div>
+<div class="divLoading"></div>
+<?php echo $this->render('/index/_jsCustom_productinfo.phtml'); ?>
