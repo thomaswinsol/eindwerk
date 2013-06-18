@@ -4,10 +4,10 @@
  *
  * @uses viewHelper Zend_View_Helper
  */
-class Zend_View_Helper_getFoto extends Zend_View_Helper_Abstract
+class Zend_View_Helper_GetFoto extends Zend_View_Helper_Abstract
 {
 		
-        public function getFoto($productId){ 
+        public function GetFoto($productId){ 
             $productfotoModel = new Application_Model_ProductFoto();
             $result = $productfotoModel->getAll("idproduct=".(int)$productId);
             if (!empty($result)) {

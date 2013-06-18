@@ -4,7 +4,7 @@
  *
  * @uses viewHelper Zend_View_Helper
  */
-class Zend_View_Helper_toonfoto extends Zend_View_Helper_Abstract
+class Zend_View_Helper_Toonfoto extends Zend_View_Helper_Abstract
 {
 		
         public function toonfoto($fotoId){

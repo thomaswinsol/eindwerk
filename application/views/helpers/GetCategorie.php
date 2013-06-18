@@ -4,10 +4,10 @@
  *
  * @uses viewHelper Zend_View_Helper
  */
-class Zend_View_Helper_getCategorie extends Zend_View_Helper_Abstract
+class Zend_View_Helper_GetCategorie extends Zend_View_Helper_Abstract
 {
 		
-        public function getCategorie($productId){
+        public function GetCategorie($productId){
             $productcategorieModel = new Application_Model_ProductCategorie();
             $categorie = $productcategorieModel->getCategorieForProduct((int)$productId);
             if (!empty($categorie)) {

@@ -1,7 +1,7 @@
 <?php
-class Zend_View_Helper_toonLocale extends Zend_View_Helper_Abstract
+class Zend_View_Helper_ToonLocale extends Zend_View_Helper_Abstract
 {
-    public function toonLocale()
+    public function ToonLocale()
     {
         $html=null;
         $localeModel = new Application_Model_Locale();

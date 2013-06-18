@@ -33,9 +33,9 @@ echo $this->doctype().PHP_EOL; ?>
                 <div class="winkelmand">
                     <?php
                         if (isset($_SESSION['context']['winkelmand'])) {
-                            echo $this->toonWinkelmand($_SESSION['context']['winkelmand']);
+                            echo $this->ToonWinkelmand($_SESSION['context']['winkelmand']);
                         } else {
-                            echo $this->toonWinkelmand(null);
+                            echo $this->ToonWinkelmand(null);
                         }
                     ?>
                 </div>

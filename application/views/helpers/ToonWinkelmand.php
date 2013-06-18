@@ -1,8 +1,8 @@
 <?php
-class Zend_View_Helper_toonWinkelmand extends Zend_View_Helper_Abstract
+class Zend_View_Helper_ToonWinkelmand extends Zend_View_Helper_Abstract
 {
 
-    public function toonWinkelmand($data)
+    public function ToonWinkelmand($data)
     {
         $html=null;
 
