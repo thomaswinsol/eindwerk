@@ -8,7 +8,7 @@ class Zend_View_Helper_GetFoto extends Zend_View_Helper_Abstract
 {
 		
         public function GetFoto($productId){ 
-            $productfotoModel = new Application_Model_ProductFoto();
+            $productfotoModel = new Application_Model_Productfoto();
             $result = $productfotoModel->getAll("idproduct=".(int)$productId);
             if (!empty($result)) {
                 $fotoModel = new Application_Model_Foto();
