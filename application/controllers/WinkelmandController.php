@@ -50,7 +50,31 @@ class WinkelmandController extends My_Controller_Action
         $this->_helper->redirector('home', 'index');
     }
 
-    public function winkelmandbestellenAction()
+    public function winkelmandtonenAction()
+    {
+        $this->_helper->layout->enableLayout();
+        if (isset($this->context['winkelmand'])) {
+            $this->view->winkelmand=$this->context['winkelmand'];
+        }
+        $bestellen = (int) $this->_getParam('bestellen');
+        if (isset($bestellen) and $bestellen) {
+            $this->view->form = new Application_Form_Bestelwinkelmand;
+        }
+
+        if ($this->getRequest()->isPost()){
+            $postParams= $this->getRequest()->getPost();
+            $form = new Application_Form_Bestelwinkelmand;
+            if (!$form->isValid($postParams)) {
+                return;
+            }
+            $formData  = $this->_request->getPost();
+            $this->winkelmandbestellen($formData['Referentie']);
+        }
+
+
+    }
+
+    public function winkelmandbestellen($referentie)
     {
         $this->_helper->viewRenderer->setNoRender();
         // Bestelling header
@@ -60,25 +84,17 @@ class WinkelmandController extends My_Controller_Action
             $gebruiker= $auth->getIdentity();
             $userid = $gebruiker->id;
         }
-        $dbFields=array("userID"=>(int)$userid);
+        $dbFields=array("IDGebruiker"=>(int)$userid, "referentie"=>$referentie);
         $bestellingid=$bestellingheaderModel->save($dbFields);
-        
+
         // Bestelling detail
         $bestellingdetailModel = new Application_Model_Bestellingdetail();
         $bestellingdetailModel->save($this->context['winkelmand'],$bestellingid);
-        
+
         // Winkelmand leegmaken
         $this->context['winkelmand']=null;
         $this->SaveContext();
         $this->_helper->redirector('home', 'index');
-    }
-
-    public function winkelmandtonenAction()
-    {
-        $this->_helper->layout->enableLayout();
-        if (isset($this->context['winkelmand'])) {
-            $this->view->winkelmand=$this->context['winkelmand'];
-        }
     }
 
 }

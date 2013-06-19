@@ -63,9 +63,18 @@ class Zend_View_Helper_ToonWinkelmand extends Zend_View_Helper_Abstract
                 $html .= "<td colspan=3 class='price'>Totaal</td>";
                     $html.= "<td class='price'>". $this->view->ShowCurrency($totaal)."</td>";
                 $html .= "</tr>";
-                $html .= "<tr>";
-                    $html.= "<td colspan=4><a id='Winkelmandbestellen' href='". $this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandtonen')) ."'>". $this->view->translate('txtBestellen')."</a></td>";
-                $html .= "</tr>";
+                    $html .= "<tr>";
+                    $html.= "<td colspan=4><a ";
+                if ($detail) {
+                    $html .='id=Winkelmandbestellen';
+                    $html .= " href='". $this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandtonen', 'bestellen'=>'1')) ."'>". $this->view->translate('txtBestellen')."</a></td>";
+                }
+                else {
+                    $html .= " href='". $this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandtonen')) ."'>". $this->view->translate('txtBestellen')."</a></td>";
+                }
+                   
+                    $html .= "</tr>";
+
                 if ($detail){
                  $html .= "<tr>";
                  $html.= "<td colspan=4><a href='". $this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandLeegmaken')) ."'>". $this->view->translate('txtWinkelmandLeegmaken')."</a></td>";

@@ -13,6 +13,15 @@ $this->jQuery()->onLoadCaptureStart(); ?>
             $(this).val(newValue);
         });
 
+        // Winkelmand bestellen
+       $("#Winkelmandbestellen").click(function(event) {
+         if (!confirm('<?php echo $this->translate('txtBevestigingBestellingWinkelmand');?>?')) {
+             event.preventDefault();
+     	     return;
+         }
+         
+       });
+
         // Voeg toe aan winkelmand
        $("#VoegToe").click(function(event) {
      	event.preventDefault();

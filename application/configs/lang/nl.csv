@@ -63,3 +63,6 @@ lblGebruikerstatus;Status gebruiker
 btnVerzenden;Verzenden
 txtEmailNotFound;-E-mailadres is niet geregistreerd
 txtLostPassword;Wachtwoord vergeten
+lblReferentie;Geef uw referentie van uw bestelling op
+lblBestellen;Bestellen
+lblUwBestellingen;Uw bestellingen

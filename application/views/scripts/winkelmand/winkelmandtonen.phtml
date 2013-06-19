@@ -2,4 +2,11 @@
     if (isset($this->winkelmand)) {
       echo $this->ToonWinkelmand($this->winkelmand,1);
     }
+
+    if (isset($this->form)) {
+        echo $this->form;
+    }
 ?>
+
+
+<?php echo $this->render('/winkelmand/_jsCustom_winkelmand.phtml'); ?>

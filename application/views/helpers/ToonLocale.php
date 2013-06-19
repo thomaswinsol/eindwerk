@@ -10,7 +10,7 @@ class Zend_View_Helper_ToonLocale extends Zend_View_Helper_Abstract
             foreach ($locale as $l) {
                 $html.= 
                 "<a href='". 
-                 ($this->view->url(array('controller'=>'taal' , 'action'=>'selecttaal', 'lang'=>$this->view->escape($l['locale'])) ))
+                 ($this->view->url(array('module'=> 'default', 'controller'=>'taal' , 'action'=>'selecttaal', 'lang'=>$this->view->escape($l['locale'])) ))
                         ."'>".$this->view->escape($this->view->translate($l['omschrijving'])) ."</a>"."&nbsp;&nbsp;";
             }  
         }        
