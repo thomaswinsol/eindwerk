@@ -1,0 +1,13 @@
+<br/>
+<section id="pagina">
+    <h1><?php echo $this->pagina['titel']; ?></h1>
+    <section>
+        <h2><?php echo $this->pagina['teaser']; ?></h2>
+    <article>
+        <h1 class="hidden">Dit is de inhoud van de pagina</h1>
+            <textarea readonly>
+                <?php echo $this->escape(trim($this->pagina['inhoud'])); ?>
+            </textarea>
+    </article>
+    </section>
+</section>

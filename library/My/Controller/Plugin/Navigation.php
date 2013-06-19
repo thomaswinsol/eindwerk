@@ -17,11 +17,12 @@ class My_Controller_Plugin_Navigation extends Zend_Controller_Plugin_Abstract
         }
 
         $menuModel = new Application_Model_Menu();
-        $urls= $menuModel->getMenu($role);
+        $urlmenu= $menuModel->getMenu($role);
 
-
+        $pageModel = new Application_Model_Pagina();
+        $urlpage=$pageModel->getNavigation(1);
+        $urls = array_merge($urlmenu, $urlpage);
         $container = new Zend_Navigation;
-
         /*$urls = array (
          array ( 'label'=> 'menuHome', 'module'=>'default', 'action'=> 'home', 'controller'=> 'index', 'params'=> array() ),
          array ( 'label'=> 'menuProduct', 'module'=>'dealer', 'action'=> 'lijst', 'controller'=> 'product', 'params'=> array() ),
@@ -29,7 +30,6 @@ class My_Controller_Plugin_Navigation extends Zend_Controller_Plugin_Abstract
          array ( 'label'=> 'menuFotoUpload', 'module'=>'dealer', 'action'=> 'lijst', 'controller'=> 'foto', 'params'=> array() ),
          array ( 'label'=> 'menuPages', 'module'=>'dealer', 'action'=> 'lijst', 'controller'=> 'pagina', 'params'=> array() ),
         );*/
-        
         foreach  ($urls as $url) {
             $param=null;
             if (!empty($url['params'])) {

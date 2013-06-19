@@ -17,20 +17,22 @@ echo $this->doctype().PHP_EOL; ?>
         
         <div id="container">
             <aside>
-                <div class="logo">
+                <h1 class="hidden">Dit is de linkermarge van de webpagina</h1>
+                <section class="logo">
                  <figure>
                         <img src="/images/logo.jpg" width="100" alt="Logo">
+                        <figcaption></figcaption>
                  </figure>
-                </div>
+                </section>
                 <br/>
-                <div class="firma">
+                <section class="firma">
                     <?php
                         if (isset($_SESSION['context']['Firma'])) {
                             echo $this->ShowFirm($_SESSION['context']['Firma']);
                         }
                     ?>
-                </div>
-                <div class="winkelmand">
+                </section>
+                <section class="winkelmand">
                     <?php
                         if (isset($_SESSION['context']['winkelmand'])) {
                             echo $this->ToonWinkelmand($_SESSION['context']['winkelmand']);
@@ -38,10 +40,13 @@ echo $this->doctype().PHP_EOL; ?>
                             echo $this->ToonWinkelmand(null);
                         }
                     ?>
-                </div>
+                </section>
             </aside>
+
             <header>
+                 <h1 class="hidden">Webhop Eindwerk SyntraWest Webmaster Advanced</h1>
                  <nav>
+                    <h2 class="hidden">Dit is de navigatie van de website</h2>
                     <?php
                     $partial = array('menu.phtml', 'default');
                     $this->navigation()->menu()->setPartial($partial);
@@ -49,17 +54,21 @@ echo $this->doctype().PHP_EOL; ?>
                     <?php echo $this->navigation()->menu()->addPageClassToLi(true); ?>
                     <br />
                 </nav>
-                            <div id="lang">                            
+                            <section id="lang">
+                            <h3 class="hidden">Taalkeuze</h3>
                             <?php echo $this->toonLocale(); ?>
-                            </div>
-                            <div class="login">
+                            </section>
+                            <section class="login">
+                            <h3 class="hidden">Loginformulier</h3>
                                 <?php echo $this->signupForm($this->signupForm); ?>
-                            </div>
+                            </section>
              </header>
             <section id="content">
-
-                <div id="mainTitle"><?php echo $this->placeholder('mainTitle') ?></div>
-
+                <h1 class="hidden">De content...</h1>
+                <section id="mainTitle">
+                <h1 class="hidden">Berichten pagina</h1>
+                                <?php echo $this->placeholder('mainTitle') ?>
+                </section>
                 <?php echo $this->layout()->content; ?>
             </section>    
         </div>

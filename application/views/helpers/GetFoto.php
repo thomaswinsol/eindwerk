@@ -13,7 +13,7 @@ class Zend_View_Helper_GetFoto extends Zend_View_Helper_Abstract
             if (!empty($result)) {
                 $fotoModel = new Application_Model_Foto();
                 $foto=$fotoModel->getOne($result[0]['idfoto']);
-                echo "<img height='120' src='/uploads/foto/".$foto['fileName']."'>";
+                return "<img height='120' src='/uploads/foto/".$foto['fileName']."'>";
             }
         }
 

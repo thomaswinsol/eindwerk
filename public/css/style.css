@@ -1,6 +1,6 @@
 *{margin:0px;padding:0px;}
 body {color:#666; font-size: 12px; font-family: Verdana, sans-serif; background-color:whitesmoke;}
-#container{margin:0 0 0 10; width:1200px; font-size: 12px;}
+#container{margin:0 0 0 10px; width:1200px; font-size: 12px;}
 aside { float:left; width:175px;}
 header {margin-left:10px;width:900px;float:left;}
 #lang { float:left; width:50px; }
@@ -58,6 +58,16 @@ table.frm_01 tbody th{
 table.frm_01 tbody td{
 	 padding: 2px 5px;
 	 vertical-align:middle;
+}
+
+table.frm_01 tbody th.foto{
+	 text-align:center;
+         background-color:#fff;
+}
+
+table.frm_01 tbody td.foto{
+	 text-align:center;
+         background-color:#fff;
 }
 
 table.frm_01 tbody td.price{
@@ -142,9 +152,6 @@ nav {
     width:300px;
 }
 
-section {
-    float:left;
-}
 
 div.productinfo {
     border:1px solid #C9C9C9;
@@ -165,23 +172,20 @@ p.productinfo {
     text-decoration: underline;
 }
 
-div.winkelmand {
+section.winkelmand {
     margin-top:15px;
 }
 
-.winkelmandempty {
-    text-align:left;
-}
-div.winkelmand li {
+section.winkelmand li {
     list-style-type:none;
     display:inline;
     margin-left:10px;
 }
 
-h1  {
+/*h1  {
     margin-left:25px;
     margin-bottom:10px;
-}
+}*/
 
 h1.productinfo{
      background-color:#DEDEDE;
@@ -191,7 +195,7 @@ h1.productinfo{
      margin-left:0px;
 }
 
-div.login {
+section.login {
         margin-top:20px;
         -moz-border-radius: 10px;
         border-radius: 10px;
@@ -312,4 +316,20 @@ textarea.productinfo {
 #productform {
     float:left;
     width:70%;
+}
+
+.hidden{display:none;}
+
+#pagina section
+{
+    margin-left:25px;
+    margin-top:25px;
+}
+
+#pagina textarea {
+    width:700px;
+    height:200px;
+    background-color:whitesmoke;
+    resize:none;
+    border: 0px;
 }

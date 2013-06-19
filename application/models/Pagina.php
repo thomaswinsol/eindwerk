@@ -98,5 +98,50 @@ class Application_Model_Pagina extends My_Model
         return $matches;
      }
 
+    public function getNavigation($status=null)
+    {
+          $locale= Zend_Registry::get('Zend_Locale');
+          $taalcode=(!empty($locale))?substr($locale,0,2):'nl';
+
+            $sql = $this->db
+            ->select()
+            ->from(array('p' => 'pagina'), array('id', 'label', 'status') )
+            ->join(array('v' => 'pagina_vertaling'), ' p.id = v.pagina_id  ', array('titel','vertaald', 'taal_id') )
+            ->join(array('t' => 'taal'), ' t.id = v.taal_id  ', array('code') );
+            $sql->where ('t.code = '."'".$taalcode."'");
+            if (!empty($status)) {
+                $sql->where ('p.status = '.(int)$status);
+            }
+            $data = $this->db->fetchAll($sql);
+            $counter=0;
+
+            $url=array();
+            foreach ($data as $d) {
+                $url[$counter]['label']=ucfirst($d['titel']);
+                $url[$counter]['module']='default';
+                $url[$counter]['action']='getpagina';
+                $url[$counter]['controller']='pagina';
+                $url[$counter]['params']="id,".$d['id'];
+                $counter++;
+            }
+
+            return $url;
+    }
+
+    public function getpagina($id=null)
+    {
+          $locale= Zend_Registry::get('Zend_Locale');
+          $taalcode=(!empty($locale))?substr($locale,0,2):'nl';
+
+            $sql = $this->db
+            ->select()
+            ->from(array('p' => 'pagina'), array('id', 'label', 'status') )
+            ->join(array('v' => 'pagina_vertaling'), ' p.id = v.pagina_id  ', array('titel','teaser', 'inhoud','vertaald', 'taal_id') )
+            ->join(array('t' => 'taal'), ' t.id = v.taal_id  ', array('code') );
+            $sql->where ('t.code = '."'".$taalcode."'");
+            $sql->where ('p.id = '.(int)$id);
+            $data = current($this->db->fetchAll($sql));
+            return $data;
+    }
 
 }

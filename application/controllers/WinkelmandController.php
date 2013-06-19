@@ -73,6 +73,14 @@ class WinkelmandController extends My_Controller_Action
         $this->_helper->redirector('home', 'index');
     }
 
+    public function winkelmandtonenAction()
+    {
+        $this->_helper->layout->enableLayout();
+        if (isset($this->context['winkelmand'])) {
+            $this->view->winkelmand=$this->context['winkelmand'];
+        }
+    }
+
 }
 
 
