@@ -76,13 +76,34 @@ class WinkelmandController extends My_Controller_Action
                 return;
             }
             $formData  = $this->_request->getPost();
-            $this->winkelmandbestellen($formData['Referentie']);
+            $this->bestellen($formData['Referentie']);
         }
-
-
     }
 
-    public function winkelmandbestellen($referentie)
+    public function winkelmandbestellenAction()
+    {
+        $this->_helper->layout->enableLayout();
+        if (isset($this->context['winkelmand'])) {
+            $this->view->winkelmand=$this->context['winkelmand'];
+        }
+        $bestellen = (int) $this->_getParam('bestellen');
+        if (isset($bestellen) and $bestellen) {
+            $this->view->form = new Application_Form_Bestelwinkelmand;
+        }
+
+        if ($this->getRequest()->isPost()){
+            $postParams= $this->getRequest()->getPost();
+            $form = new Application_Form_Bestelwinkelmand;
+            if (!$form->isValid($postParams)) {
+                return;
+            }
+            $formData  = $this->_request->getPost();
+            $this->bestellen($formData['Referentie']);
+        }
+    }
+
+
+    public function bestellen($referentie)
     {
         $this->_helper->viewRenderer->setNoRender();
         // Bestelling header
@@ -92,7 +113,7 @@ class WinkelmandController extends My_Controller_Action
             $gebruiker= $auth->getIdentity();
             $userid = $gebruiker->id;
         }
-        $dbFields=array("IDGebruiker"=>(int)$userid, "referentie"=>$referentie);
+        $dbFields=array("IDGebruiker"=>(int)$userid, "referentie"=>$referentie, "status"=>1);
         $bestellingid=$bestellingheaderModel->save($dbFields);
 
         // Bestelling detail
@@ -103,6 +124,31 @@ class WinkelmandController extends My_Controller_Action
         $this->context['winkelmand']=null;
         $this->SaveContext();
         $this->_helper->redirector('home', 'index');
+    }
+
+
+     public function bestellingtonenAction() {
+        $this->_helper->layout->enableLayout();
+        try
+        {
+            $bestellingheaderModel = new Application_Model_Bestellingheader();
+            $bestellingen = $bestellingheaderModel->getTotaalBestellingen();
+            $this->view->dataGrid = $bestellingheaderModel->BuildDataGrid($bestellingen);
+
+        } catch(Exception $e) {
+    		return NULL;
+    	}
+    }
+
+    public function showpdfAction(){
+    	$this->_helper->layout->disableLayout();
+    	$this->_helper->viewRenderer->setNoRender();
+
+    	$id                       = (int)$this->getRequest()->getParam('id');
+    	$bestellingheaderModel    = new Application_Model_Bestellingheader();
+    	$bestelling               = $bestellingheaderModel->getBestellingen($id);
+
+    	$bestellingheaderModel->buildPdf($bestelling,$id);
     }
 
 }

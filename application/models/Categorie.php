@@ -72,6 +72,7 @@ class Application_Model_Categorie extends My_Model
             ->join(array('v' => 'categorie_vertaling'), ' c.id = v.categorie_id  ', array('titel','vertaald', 'taal_id') )
             ->join(array('t' => 'taal'), ' t.id = v.taal_id  ', array('code') );
             $sql->where ('t.code = '."'".$taalcode."'");
+            $sql->where ('c.status = 1');
 
             $data = $this->db->fetchAll($sql);
             

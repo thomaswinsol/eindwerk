@@ -6,7 +6,7 @@ class Application_Form_Bestelwinkelmand extends My_Form  {
         $this->setMethod(Zend_Form::METHOD_POST);
         //$this->setAttrib('enctype', 'multiparts/form-data');
         $this->setAttrib('enctype', Zend_Form::ENCTYPE_MULTIPART);
-        $this->setAction('/winkelmand/winkelmandtonen');
+        $this->setAction('/winkelmand/winkelmandbestellen');
 
          // element Referentie
          $this->addElement(new Zend_Form_Element_Text('Referentie',array(

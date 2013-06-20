@@ -10,7 +10,7 @@ class Application_Model_Foto extends My_Model
     protected $status = '';
     protected $pathUpload;
 
-    const LIMIT=2;
+    const LIMIT=10;
 
     public function __construct(){
         $this->pathUpload =  'uploads/foto/';
@@ -67,7 +67,7 @@ class Application_Model_Foto extends My_Model
     					'identifier'    => (isset($data['identifier']) ? (int)$data['identifier'] : 0),
     					'creationDate'  => $currentTime,
     					'lastUpdate'    => $currentTime,
-                                        'label'         => "",
+                                        'label'         => $data['fileName'],
                                         'status'        => 1
     			);
 
@@ -171,6 +171,24 @@ class Application_Model_Foto extends My_Model
         $this->savetranslation($data, $id);
     }
 
+    /**
+     * Insert
+     * @return int last insert ID
+     */
+    public function insert($data)
+    {
+        return parent::insert($data);
+    }
+
+    /**
+     * Update
+     * @return int numbers of rows updated
+     */
+    public function update($data,$id)
+    {
+        return parent::update($data, 'id = '. (int)$id);
+    }
+    
     public function savetranslation($data,$id = NULL)
     {
         $vertalingModel = new Application_Model_Fotovertaling();

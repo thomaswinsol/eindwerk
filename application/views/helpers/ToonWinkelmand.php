@@ -67,7 +67,7 @@ class Zend_View_Helper_ToonWinkelmand extends Zend_View_Helper_Abstract
                     $html.= "<td colspan=4><a ";
                 if ($detail) {
                     $html .='id=Winkelmandbestellen';
-                    $html .= " href='". $this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandtonen', 'bestellen'=>'1')) ."'>". $this->view->translate('txtBestellen')."</a></td>";
+                    $html .= " href='". $this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandbestellen')) ."'>". $this->view->translate('txtBestellen')."</a></td>";
                 }
                 else {
                     $html .= " href='". $this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandtonen')) ."'>". $this->view->translate('txtBestellen')."</a></td>";

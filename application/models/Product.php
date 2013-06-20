@@ -61,13 +61,10 @@ class Application_Model_Product extends My_Model
 
             $sql->where ('t.code = '."'".$taalcode."'");
 
-        If (!empty($status)) {
-            $sql->where ('p.status = '.$status);
-        }
-        $sql->where ('p.id = '.(int)$id);
-        $data = $this->db->fetchRow($sql);
+            $sql->where ('p.id = '.(int)$id);
+            $data = $this->db->fetchRow($sql);
 
-        return $data;
+            return $data;
     }
 
     public function getLangFields()

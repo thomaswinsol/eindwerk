@@ -13,7 +13,7 @@ class Application_Form_ZoekProduct extends My_Form  {
         // element Categorie
         $categorieModel = new Application_Model_Categorie();
         $defaultOptions = array('key'=> 'id', 'value' =>'titel', 'emptyRow' => True);
-        $categorie = $categorieModel->buildSelect($defaultOptions, null, "label");
+        $categorie = $categorieModel->buildSelect($defaultOptions);
         $elem = new Zend_Form_Element_Select('Categorie');
         $elem->setLabel('txtCategorie')
              ->setMultiOptions($categorie);

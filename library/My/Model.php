@@ -87,14 +87,15 @@ abstract class My_Model extends Zend_Db_Table_Abstract
     }
     
 
-    public function buildSelect($options = NULL){
+    public function buildSelect($options = NULL, $where= NULL, $order=NULL){
     	$defaultOptions = array(
     		'key'      => $this->_id,
     		'value'    => 'Omschrijving',
     		'emptyRow' => TRUE,
     	);
    		$options = !empty($options) && is_array($options) ? array_merge($defaultOptions,(array)$options) : $defaultOptions;
-    	$data = $this->getAll();
+    	$data = $this->getAll($where, $order);
+
     	if (empty($data)){
     		return array();
     	}

@@ -15,7 +15,7 @@ class Zend_View_Helper_ToonBestellingen extends Zend_View_Helper_Abstract
             if (!empty($data)) {
                 $html .= "<br/>".
                  "<a href='".($this->view->url(array('controller'=>'winkelmand' , 'action'=>'bestellingtonen')))."'>".
-                    $this->view->translate("lblUwBestellingen")."(". count($data['aantalbestellingen']) .")</a>";
+                    $this->view->translate("lblUwBestellingen")."(". $data['aantalbestellingen'] .")</a>";
                 return $html;
             }
         }

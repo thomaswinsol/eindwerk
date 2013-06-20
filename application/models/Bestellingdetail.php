@@ -9,7 +9,11 @@ class Application_Model_Bestellingdetail extends My_Model
              $productModel = new Application_Model_Product();
 	     foreach ($winkelmand as $key => $value) {
                 $product=$productModel->getProduct($key);
-                $dbFields=array("IDBestelling"=>$id, "IDProduct"=>$key,"AantalBesteld"=>$value,"Prijs"=>$product['Eenheidsprijs']);
+                if (empty($product)) {
+                    $product['eenheidsprijs']=0;
+                }
+                $totaal=$value*$product['eenheidsprijs'];
+                $dbFields=array("IDBestelling"=>$id, "IDProduct"=>$key,"AantalBesteld"=>$value,"Prijs"=>$product['eenheidsprijs'],"Totaal"=>$totaal);
                 $this->insert($dbFields);
              }
     }

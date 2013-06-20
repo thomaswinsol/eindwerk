@@ -77,7 +77,7 @@ class GebruikerController extends My_Controller_Action
                 $this->_helper->redirector('register', 'gebruiker');
             }
             else {
-                $dbFields=array("naam"=>$formData['naam'],"email"=>$formData['email'],"paswoord"=>md5($formData['paswoord']),"idrole"=>1,"status"=>2);
+                $dbFields=array("naam"=>$formData['naam'],"email"=>$formData['email'],"paswoord"=>md5($formData['paswoord']),"idrole"=>1,"status"=>3);
                 $gebruikerModel->insert($dbFields);
             }
             
