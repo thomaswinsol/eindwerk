@@ -30,7 +30,7 @@
         else {
             $acl = Zend_Registry::get('Zend_Acl');
             $gebruiker= $auth->getIdentity();
-            $gebruikerroleModel = new Application_Model_GebruikerRole();
+            $gebruikerroleModel = new Application_Model_Gebruikerrole();
             $role = $gebruikerroleModel->getOne($gebruiker->idrole);
             $resource = $request->getModuleName().'-'.$request->getControllerName();
             if($acl->has($resource)) {
