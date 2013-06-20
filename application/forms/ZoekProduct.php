@@ -19,13 +19,6 @@ class Application_Form_ZoekProduct extends My_Form  {
              ->setMultiOptions($categorie);
         $this->addElement($elem);
 
-         // element label
-        $this->addElement(new Zend_Form_Element_Text('label',array(
-            'label'=>"txtLabel",
-            'filters' => array('StringTrim'),
-            'validators' => array( array('StringLength',true, array('max'=>255)))
-            )));
-
           // element titel
         $this->addElement(new Zend_Form_Element_Text('titel',array(
             'label'=>"txtTitel",

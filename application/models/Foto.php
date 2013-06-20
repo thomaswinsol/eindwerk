@@ -10,6 +10,8 @@ class Application_Model_Foto extends My_Model
     protected $status = '';
     protected $pathUpload;
 
+    const LIMIT=2;
+
     public function __construct(){
         $this->pathUpload =  'uploads/foto/';
         parent::__construct();
@@ -136,8 +138,10 @@ class Application_Model_Foto extends My_Model
     }
 
      public function getAutocomplete($where=NULL){
+        
+        $foto = $this->getFotos($where, null, self::LIMIT);
+        
 
-        $foto = parent::getAll($where);
 	$matches = array();
         foreach ( $foto as $f ) {
                         $f['id']  =trim($f['id']);
@@ -183,6 +187,19 @@ class Application_Model_Foto extends My_Model
             );
             $vertalingModel->save($dbFields);
         }
+    }
+
+
+    public function getFotos($where=null, $order=null, $limit=null)
+    {
+            $sql =  $sql = $this->db
+            ->select()
+            ->from(array('f' => 'foto'), array('*' ) );
+            $sql->where($where);
+            $sql->limit($limit);
+            $data = $this->db->fetchAll($sql);
+
+            return $data;
     }
 
 }

@@ -9,22 +9,21 @@ class My_Auth_Acl extends Zend_Controller_Plugin_Abstract {
 
     public function preDispatch(Zend_Controller_Request_Abstract $request) {
 
-        // Op welke controllers heb je rechten
         $acl = new Zend_Acl();
-        $acl->add(new Zend_Acl_Resource(My_Resources::ADMIN_MODULE));
+        $roles = array('USER', 'DEALER', 'ADMIN');
+        $controllers = array('admin-index', 'admin-product');
+        foreach($roles as $role) {
+            $acl->addRole($role);
+        }
 
-        // roles
-        $acl->addRole(new Zend_Acl_Role(My_Roles::ADMIN));
-        $acl->addRole(new Zend_Acl_Role(My_Roles::GUEST));
-        $acl->addRole(new Zend_Acl_Role(My_Roles::USER));
-
-        /////////////////
-        // permissions //
-        /////////////////
-        $acl->allow(My_Roles::ADMIN, array(
-                                My_Resources::ADMIN_MODULE,
-        ));
-
+        foreach($controllers as $controller) {
+            //$acl->addResource($controller); -> nieuwe manier
+            $acl->add(new Zend_Acl_Resource($controller));
+        }
+        $acl->allow('ADMIN');  //acces to everything
+        $acl->allow('DEALER'); //acces to everything
+        /*$acl->deny('USER', 'admin-index');
+        $acl->deny('USER', 'admin-product');  */
         Zend_Registry::set('Zend_Acl', $acl);
 
     }

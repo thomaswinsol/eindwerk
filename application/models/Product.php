@@ -7,7 +7,9 @@ class Application_Model_Product extends My_Model
     protected $model_fields = array( array("name"=> "eenheidsprijs", "type"=>"decimal"), array("name"=> "eenheidsprijs", "type"=>"decimal") );
     protected $lang_fields = array('titel', 'teaser', 'inhoud');
     protected $status= 'Productstatus';
-    
+
+    const LIMIT=20;
+
     public function getProducten($data=null, $status=null)
     {
             $locale= Zend_Registry::get('Zend_Locale');
@@ -20,6 +22,8 @@ class Application_Model_Product extends My_Model
             ->join(array('t' => 'taal'), ' t.id = v.taal_id  ', array('code', 'status as t.satus') );;
 
             $sql->where ('t.code = '."'".$taalcode."'");
+            $sql->limit(self::LIMIT);
+            //die($sql);
             // Status= inactief
             if (empty($status)) {
                 $sql->where ('p.status <>2 ');
@@ -29,10 +33,6 @@ class Application_Model_Product extends My_Model
         if (!empty($data['Categorie'])){
             $sql->join(array('c' => 'product_categorie'), ' p.id = c.idproduct  ', array('c.idcategorie') );
             $sql->where ('c.idcategorie = '. (int)$data['Categorie'] );
-            $selectie=1;
-        }
-        if (!empty($data['label'])){
-            $sql->where ('label like '."'%".trim($data['label'])."%'");
             $selectie=1;
         }
         if (!empty($data['titel'])){

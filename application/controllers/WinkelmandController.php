@@ -33,13 +33,21 @@ class WinkelmandController extends My_Controller_Action
     }
 
 
-    public function userhasnoidentityAction()
+    public function noaccessAction()
     {
          $this->_helper->viewRenderer->setNoRender();
          $this->flashMessenger->setNamespace('Errors');
          $tr= Zend_Registry::get('Zend_Translate');
-         $this->flashMessenger->addMessage($tr->translate('txtNoIdentity'));
-         $this->_helper->redirector('register', 'gebruiker');
+         $error = (int) $this->_getParam('error');
+         if ($error==1){
+            $this->flashMessenger->addMessage($tr->translate('txtNoIdentity'));
+            $this->_helper->redirector('register', 'gebruiker');
+         }
+         if ($error==2){
+            $this->flashMessenger->addMessage($tr->translate('txtNoAccess'));
+            $this->_helper->redirector('home', 'index');
+         }
+         
     }
 
     public function winkelmandleegmakenAction()
