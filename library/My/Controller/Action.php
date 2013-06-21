@@ -89,7 +89,7 @@ abstract class My_Controller_Action extends Zend_Controller_Action
          $param["langFields"] = $detailModel->getLangFields();
          $param["modelFields"]= $detailModel->getModelFields();
          $param["status"]= $detailModel->getStatus();
-         $taalModel = new Application_Model_Taal();
+         $taalModel = new Application_Model_Locale();
          $param["languages"]= $taalModel->getTaal();
          $param["controller"]= strtolower($controller);
 

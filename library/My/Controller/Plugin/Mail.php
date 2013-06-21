@@ -2,10 +2,10 @@
 /**
 * Setup view variables
 */
-class Syntra_Controller_Plugin_Mail extends Zend_Controller_Plugin_Abstract
+class My_Controller_Plugin_Mail extends Zend_Controller_Plugin_Abstract
 {
 	
-     const TEMPLATE_OA = 'LostPassword';
+     const TEMPLATE_LOST_PASSWORD = 'LostPassword';
     
      public $view;
     

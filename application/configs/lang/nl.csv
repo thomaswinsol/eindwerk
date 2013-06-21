@@ -68,3 +68,13 @@ lblBestellen;Bestellen
 lblUwBestellingen;Uw bestellingen
 txtNoAccess;-Geen toegang tot deze pagina
 menuTaal;Taal
+menuFirma;Firma
+lblFirma;Firma
+lblStraat;Straat
+lblPostcode;Postcode
+lblGemeente;Gemeente
+lblTel;Tel
+lblFax;Fax
+lblEmail;Email
+lblBTWnummer;BTW-nummer
+lblWebsite;Website

@@ -58,7 +58,7 @@ class Application_Model_Gebruiker extends My_Model
         $dbFields = array(
             'eId' => $eId,
         );
-        $this->updateById($dbFields,$id);
+        $this->update($dbFields,$id);
         return $eId;
     }
 

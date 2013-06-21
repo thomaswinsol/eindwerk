@@ -21,6 +21,16 @@ class Application_Model_Locale extends My_Model
         return $values;
      }
 
+     public function getTaal($where=NULL){
+        $where="status=1";
+        $talen = parent::getAll($where,"id");
+        $talen_array=array();
+	foreach ( $talen as $t ) {
+            $talen_array[$t['idtaal']] = substr($t['locale'],0,2);
+        }
+        return $talen_array;
+     }
+
     public function updateLocale($data, $id, $not=null)
     {
         return parent::update($data, 'id ' . trim($not).' in ('. $id .")");
