@@ -55,7 +55,7 @@
     if (!empty($this->fotos)) {
         foreach($this->fotos as $f) {
 ?>
-            <img height="120" src="<?php echo "/".$this->escape($f['filePath']).$this->escape($f['fileName']); ?>"><br/>
+            <img class="productimage" src="<?php echo "/".$this->escape($f['filePath']).$this->escape($f['fileName']); ?>"><br/>
 <?php
        }
     }

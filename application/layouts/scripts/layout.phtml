@@ -15,12 +15,12 @@ echo $this->doctype().PHP_EOL; ?>
     
     <body>
         
-        <div id="container">
+        <section id="container">
             <aside>
                 <h1 class="hidden">Dit is de linkermarge van de webpagina</h1>
                 <section class="logo">
                  <figure>
-                        <img src="/images/logo.jpg" width="100" alt="Logo">
+                        <img src="/images/logo.jpg" width="50%" alt="Logo">
                         <figcaption></figcaption>
                  </figure>
                 </section>
@@ -31,16 +31,7 @@ echo $this->doctype().PHP_EOL; ?>
                             echo $this->ShowFirm($_SESSION['context']['Firma']);
                         }
                     ?>
-                </section>
-                <section class="winkelmand">
-                    <?php
-                        if (isset($_SESSION['context']['winkelmand'])) {
-                            echo $this->ToonWinkelmand($_SESSION['context']['winkelmand']);
-                        } else {
-                            echo $this->ToonWinkelmand(null);
-                        }
-                    ?>
-                </section>
+                </section>                
                 <section class="bestellingen">
                     <?php
                            echo $this->ToonBestellingen();
@@ -50,6 +41,11 @@ echo $this->doctype().PHP_EOL; ?>
 
             <header>
                  <h1 class="hidden">Webhop Eindwerk SyntraWest Webmaster Advanced</h1>
+                 <section class="lang">
+                 <h3 class="hidden">Taalkeuze</h3>
+                       <?php echo $this->toonLocale(); ?>
+                 </section>
+
                  <nav>
                     <h2 class="hidden">Dit is de navigatie van de website</h2>
                     <?php
@@ -59,14 +55,22 @@ echo $this->doctype().PHP_EOL; ?>
                     <?php echo $this->navigation()->menu()->addPageClassToLi(true); ?>
                     <br />
                 </nav>
-                            <section id="lang">
-                            <h3 class="hidden">Taalkeuze</h3>
-                            <?php echo $this->toonLocale(); ?>
-                            </section>
-                            <section class="login">
-                            <h3 class="hidden">Loginformulier</h3>
-                                <?php echo $this->signupForm($this->signupForm); ?>
-                            </section>
+
+                
+                <section class="winkelmand">
+                    <?php
+                        if (isset($_SESSION['context']['winkelmand'])) {
+                            echo $this->ToonWinkelmand($_SESSION['context']['winkelmand']);
+                        } else {
+                            echo $this->ToonWinkelmand(null);
+                        }
+                    ?>
+                </section>
+                 
+                <section class="login">
+                 <h3 class="hidden">Loginformulier</h3>
+                       <?php echo $this->signupForm($this->signupForm); ?>
+                </section>
              </header>
             <section id="content">
                 <h1 class="hidden">De content...</h1>
@@ -75,8 +79,18 @@ echo $this->doctype().PHP_EOL; ?>
                                 <?php echo $this->placeholder('mainTitle') ?>
                 </section>
                 <?php echo $this->layout()->content; ?>
-            </section>    
-        </div>
+            </section>
+
+            <footer>
+                <h1 class="hidden">De footer...</h1>
+                 <?php
+                        if (isset($_SESSION['context']['Firma'])) {
+                            echo $this->ShowFirm($_SESSION['context']['Firma']);
+                        }
+                 ?>
+            </footer>
+
+        </section>
     </body>
 </html>
 

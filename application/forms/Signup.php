@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Signup extends Zend_Form {
+class Application_Form_Signup extends My_Form {
 
     public function init(){
         // set the defaults
@@ -28,12 +28,15 @@ class Application_Form_Signup extends Zend_Form {
             'filters' => array('StringTrim')
             )));
 
+         $this->setElementDecorators($this->elementDecorators);
+         
          // element button
         $this->addElement(new Zend_Form_Element_Button('inloggen', array(
             'type'=>"submit",
             'label'=>'btnInloggen',
             'required'=> false,
-            'ignore'=> true
+            'ignore'=> true,
+            'decorators'=>$this->buttonDecorators
             )));
 
     }

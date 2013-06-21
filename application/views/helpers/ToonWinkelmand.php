@@ -33,8 +33,8 @@ class Zend_View_Helper_ToonWinkelmand extends Zend_View_Helper_Abstract
                 $product=$productModel->getProduct($key);
                 if (!empty($product)) {
                     if ($counter==0) {
-                        $html .= "<table class='frm_01 frm_02'>";
                         if ($detail) {
+                        $html .= "<table class='frm_01 frm_02'>";                        
                         $html .= "<tr>";
                             $html .= "<th class='foto'>"."</th>";
                             $html .= "<th>".$this->view->translate("txtProduct")."</th>";
@@ -58,6 +58,7 @@ class Zend_View_Helper_ToonWinkelmand extends Zend_View_Helper_Abstract
                 
             }
             if ($counter>0) {
+                if ($detail){
                 $html .= "<tfoot>";
                 $html .= "<tr>";
                 $html .= "<td colspan=3 class='price'>Totaal</td>";
@@ -65,23 +66,18 @@ class Zend_View_Helper_ToonWinkelmand extends Zend_View_Helper_Abstract
                 $html .= "</tr>";
                     $html .= "<tr>";
                     $html.= "<td colspan=4><a ";
-                if ($detail) {
                     $html .='id=Winkelmandbestellen';
                     $html .= " href='". $this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandbestellen')) ."'>". $this->view->translate('txtBestellen')."</a></td>";
-                }
-                else {
-                    $html .= " href='". $this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandtonen')) ."'>". $this->view->translate('txtBestellen')."</a></td>";
-                }
-                   
                     $html .= "</tr>";
 
-                if ($detail){
+                
                  $html .= "<tr>";
                  $html.= "<td colspan=4><a href='". $this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandLeegmaken')) ."'>". $this->view->translate('txtWinkelmandLeegmaken')."</a></td>";
                  $html .= "</tr>";
-                }
+                
                 $html .= "</tfoot>";
                 $html .= "</table>";
+                }
             }
         }
         

@@ -1,26 +1,30 @@
 *{margin:0px;padding:0px;}
-body {color:#666; font-size: 12px; font-family: Verdana, sans-serif; background-color:whitesmoke;}
-#container{margin:0 0 0 10px; width:1200px; font-size: 12px;}
-aside { float:left; width:175px;}
-header {margin-left:10px;width:900px;float:left;}
-#lang { float:left; width:50px; }
-header nav {width:550px;margin-top:10px; float:left; margin-left:10px; }
-nav li {list-style-type:none; font-size:14px; height:50px; display:inline; margin-left:10px;}
-nav ul li.active{color:red;}
+body {color:#666; font-family: Verdana, sans-serif; background-color:whitesmoke;}
+#container{margin:0 0 0 10px; max-width:1000px; width:100%; font-size:80%;}
+aside { float:left; width:15%; height:600px;}
 
-#content{width:900px;float:left;}
+header {width:85%;float:left;}
+
+header nav {width:100%; float:left;  }
+nav li {list-style-type:none; display:inline; padding:1%; }
+nav ul li.active{color:red;}
+#producten {float:left; width:100%;}
+
+.logo img {width:50%;}
+#content{width:85%; float:left;}
+footer {clear:both; display:none;}
 
 table.frm_01 , .frm_02{
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size:  95%;
 	border-collapse: collapse;
 	background-color:#EDECEF;
-	margin-left:25px;
+	margin-left:5px;
 	border-top:1px solid gray;
 	border-bottom:1px solid gray;
 	margin-top:0px;
 	caption-side:top;
-	width:90%;
+	width:70%;
 	color:black;
 }
 table.frm_02{
@@ -28,8 +32,8 @@ table.frm_02{
         width:80%;
 }
 
-table.frm_01 caption {
-	  margin-left:50px;  }
+/*table.frm_01 caption {
+	  margin-left:50px;  }*/
 
 table.frm_01 tr{
 	color:black;
@@ -52,7 +56,7 @@ table.frm_01 tbody th{
 	color:black;
 	border-color:#DEDEDE;
 	text-align:right;
-	width:50px;
+	/*width:50px;*/
 }
 
 table.frm_01 tbody td{
@@ -172,8 +176,28 @@ p.productinfo {
     text-decoration: underline;
 }
 
+
+
+section.firma
+{
+    width:100%;
+    font-size:80%;
+}
+
+section.lang {
+    margin-top:1px;
+    width:100%;
+    float:right;
+    text-align:right;
+    margin-right:2%;
+}
+
 section.winkelmand {
-    margin-top:15px;
+    margin-top:5px;
+    width:70%;
+    float:right;
+    text-align:right;
+    margin-right:2%;
 }
 
 section.winkelmand li {
@@ -182,10 +206,7 @@ section.winkelmand li {
     margin-left:10px;
 }
 
-/*h1  {
-    margin-left:25px;
-    margin-bottom:10px;
-}*/
+section.winkelmand.img { width:15%;}
 
 h1.productinfo{
      background-color:#DEDEDE;
@@ -196,17 +217,21 @@ h1.productinfo{
 }
 
 section.login {
-        margin-top:20px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
+        margin-top:5px;
+        -moz-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
         background : #fff;
         border : 1px solid #666;
-        width:270px;
+        width:40%;
         float:right;
-        padding-bottom: 10px;
-        padding-left:10px;
-        padding-top:10px;
+        padding: 1%;
+        margin-righ:5%;
 }
+
+
+
+
+
 
 .promoblokken {
     display: inline-block;
@@ -218,7 +243,7 @@ section.login {
 .l_prom_new {
     cursor: pointer;
     float: left;
-    margin: 0 10px 10px 0;
+    margin: 0 3px 3px 0;
     width: 209px;
 }
 .l_prom_top_g_new {
@@ -274,6 +299,7 @@ section.login {
     overflow: hidden;
     width: 209px;
 }
+.productimage {height:120px;}
 
 textarea.productinfo {
     width:400px;
@@ -300,7 +326,7 @@ textarea.productinfo {
 	padding:0px;
 	text-align:left;
 	color:#fff;
-	margin-left:25px;
+	margin-left:5px;
 	background-color: darkred;
 }
 
@@ -310,7 +336,7 @@ textarea.productinfo {
 	text-align:left;
 	color:#fff;
 	background-color:darkgreen;
-	margin-left:25px;
+	margin-left:5px;
 }
 
 #productform {
@@ -318,7 +344,7 @@ textarea.productinfo {
     width:70%;
 }
 
-.hidden{display:none;}
+.hidden, figcaption{display:none;}
 
 #pagina section
 {
@@ -332,4 +358,21 @@ textarea.productinfo {
     background-color:whitesmoke;
     resize:none;
     border: 0px;
+}
+
+
+
+@media screen and (max-width: 650px) {   
+    aside {
+        display:none;
+    }
+    footer {
+        display:block;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    section.login {
+        float:left;
+    }
 }
