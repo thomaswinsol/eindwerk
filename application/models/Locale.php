@@ -8,10 +8,24 @@ class Application_Model_Locale extends My_Model
         $locale = parent::getAll($where,"id");
         $locale_array=array();
 	foreach ( $locale as $l ) {
-            $locale_array[$l['id']] = $l['code'];
+            $locale_array[$l['id']] = $l['locale'];
         }
         return $locale_array;
      }
+
+     public function getLocaleForm(){
+        $locale = parent::getAll("status=1");
+	foreach ( $locale as $l ) {
+            $values['locale'][] = $l['id'];
+        }
+        return $values;
+     }
+
+    public function updateLocale($data, $id, $not=null)
+    {
+        return parent::update($data, 'id ' . trim($not).' in ('. $id .")");
+    }
+
 }
 ?>
 

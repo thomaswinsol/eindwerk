@@ -9,6 +9,17 @@ class admin_Form_Gebruikerstatus extends My_Form {
         $this->setAttrib('enctype', Zend_Form::ENCTYPE_MULTIPART);
         $this->setAction('/admin/gebruiker/detail');
 
+        $whererole="id<=2";
+        $auth = Zend_Auth::getInstance();
+        if ($auth->hasIdentity() ) {
+            $gebruiker= $auth->getIdentity();
+            $userrole = $gebruiker->idrole;
+            if ($userrole==3){
+                $whererole=null;
+            }
+        }
+
+
         $elem = $this->createElement('select','status');
 		   	$elem->setLabel("lblstatus")
 			->addMultiOptions(array('1' => 'Actief' , '2' => 'Inactief') )
@@ -19,7 +30,7 @@ class admin_Form_Gebruikerstatus extends My_Form {
 
             $model = new Application_Model_Gebruikerrole();
             $defaultOptions = array('key'=> 'id', 'value' =>'role');
-            $roles  = $model->buildSelect($defaultOptions);
+            $roles  = $model->buildSelect($defaultOptions,$whererole);
             $elem = new Zend_Form_Element_Select('idrole');
             $elem->setLabel('lblrole')
                  ->setMultiOptions($roles)

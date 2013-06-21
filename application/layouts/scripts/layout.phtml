@@ -20,23 +20,15 @@ echo $this->doctype().PHP_EOL; ?>
                 <h1 class="hidden">Dit is de linkermarge van de webpagina</h1>
                 <section class="logo">
                  <figure>
-                        <img src="/images/logo.jpg" width="50%" alt="Logo">
-                        <figcaption></figcaption>
+                        <img src="/images/logo.jpg" alt="Logo">
+                        <figcaption>Logo</figcaption>
                  </figure>
                 </section>
                 <br/>
                 <section class="firma">
-                    <?php
-                        if (isset($_SESSION['context']['Firma'])) {
-                            echo $this->ShowFirm($_SESSION['context']['Firma']);
-                        }
-                    ?>
+                    <h3 class="hidden">Firmagegevens</h3>
+                    <?php echo $this->ShowFirm($_SESSION['context']['firma']); ?>
                 </section>                
-                <section class="bestellingen">
-                    <?php
-                           echo $this->ToonBestellingen();
-                    ?>
-                </section>
             </aside>
 
             <header>
@@ -59,35 +51,39 @@ echo $this->doctype().PHP_EOL; ?>
                 
                 <section class="winkelmand">
                     <?php
-                        if (isset($_SESSION['context']['winkelmand'])) {
-                            echo $this->ToonWinkelmand($_SESSION['context']['winkelmand']);
-                        } else {
-                            echo $this->ToonWinkelmand(null);
-                        }
+                            if (isset($_SESSION['context']['winkelmand'])){
+                                echo $this->ToonWinkelmand($_SESSION['context']['winkelmand']);
+                            }
+                            else {
+                                echo $this->ToonWinkelmand(null);
+                            }
                     ?>
                 </section>
-                 
+
+                
                 <section class="login">
                  <h3 class="hidden">Loginformulier</h3>
                        <?php echo $this->signupForm($this->signupForm); ?>
                 </section>
-             </header>
+
+                <section class="search">
+                 <h3 class="hidden">Zoekformulier</h3>
+                       <?php echo $this->searchForm($this->searchForm); ?>
+                </section>
+            </header>
+
             <section id="content">
                 <h1 class="hidden">De content...</h1>
                 <section id="mainTitle">
-                <h1 class="hidden">Berichten pagina</h1>
-                                <?php echo $this->placeholder('mainTitle') ?>
+                <h1 class="hidden">Error messages</h1>
+                       <?php echo $this->placeholder('mainTitle') ?>
                 </section>
                 <?php echo $this->layout()->content; ?>
             </section>
 
             <footer>
                 <h1 class="hidden">De footer...</h1>
-                 <?php
-                        if (isset($_SESSION['context']['Firma'])) {
-                            echo $this->ShowFirm($_SESSION['context']['Firma']);
-                        }
-                 ?>
+                 <?php echo $this->ShowFirm($_SESSION['context']['firma']);?>
             </footer>
 
         </section>

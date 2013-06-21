@@ -8,8 +8,7 @@ class GebruikerController extends My_Controller_Action
     {
 	$this->_helper->layout->disableLayout();   
         $form = new Application_Form_Signup();
-        if (!$this->getRequest()->isPost())
-        {
+        if (!$this->getRequest()->isPost()) {
         	$this->view->data = $this->getRequest()->getParams(); 
                 return false;
         }
@@ -17,8 +16,7 @@ class GebruikerController extends My_Controller_Action
         $this->_helper->viewRenderer->setNoRender();
 
         $formData = $values = $this->_request->getPost();
-        if (!$form->isValid($formData))
-        {
+        if (!$form->isValid($formData)) {
             $this->flashMessenger->setNamespace('Errors');
             $this->flashMessenger->addMessage('-Invalid user or password');
             $this->_helper->redirector('home', 'index');
@@ -40,7 +38,10 @@ class GebruikerController extends My_Controller_Action
        
         // authentication OK
         if ($result->isValid())
-        { //auth OK
+        { 
+            $gebruikerModel = new Application_Model_Gebruiker();
+            $gebruiker = $gebruikerModel->getOneByField('email', $formData['email']);
+            $this->countbestellingen($gebruiker);
             $auth->getStorage()
                 ->write($adapter->getResultRowObject(null, "password"));
             $identity = $adapter->getResultRowObject();           
@@ -77,7 +78,7 @@ class GebruikerController extends My_Controller_Action
                 $this->_helper->redirector('register', 'gebruiker');
             }
             else {
-                $dbFields=array("naam"=>$formData['naam'],"email"=>$formData['email'],"paswoord"=>md5($formData['paswoord']),"idrole"=>1,"status"=>3);
+                $dbFields=array("naam"=>$formData['naam'],"email"=>$formData['email'],"paswoord"=>md5($formData['paswoord']),"idrole"=>1,"status"=>1);
                 $gebruikerModel->insert($dbFields);
             }
             
@@ -96,6 +97,8 @@ class GebruikerController extends My_Controller_Action
         $this->_helper->layout->disableLayout();
         $this->_helper->viewRenderer->setNoRender();
         Zend_Auth::getInstance()->clearIdentity();
+        $this->context['bestellingen']=null;
+        $this->SaveContext();
         $this->_helper->redirector('home','index');
     }
 
@@ -135,6 +138,17 @@ class GebruikerController extends My_Controller_Action
                 throw $e;
             }
          }
+    }
+
+    private function countbestellingen($gebruiker)
+    {
+        $bestellingheaderModel = new Application_Model_Bestellingheader();        
+        $data=$bestellingheaderModel->getAantalBestellingen($gebruiker['id']);
+        $this->context['bestellingen']=null;
+        if (!empty($data)){
+            $this->context['bestellingen']=$data['aantalbestellingen'];            
+        }
+        $this->SaveContext();
     }
       
 }

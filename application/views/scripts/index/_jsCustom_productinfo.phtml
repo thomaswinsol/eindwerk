@@ -1,7 +1,4 @@
 <?php
-// ---------------------------------
-// JAVASCRIPT
-// --------------------------------- 
 $this->jQuery()->onLoadCaptureStart(); ?>
 
          $(document).ready(function() {
@@ -13,10 +10,10 @@ $this->jQuery()->onLoadCaptureStart(); ?>
             $(this).val(newValue);
         });
 
-        // Voeg toe aan winkelmand
+        // Voeg item toe aan winkelmand
        $("#VoegToe").click(function(event) {
      	event.preventDefault();
-     	$("#divLoading").html('<img src="/base/images/icons/loader_02.gif" /><BR> Loading, please wait...');
+     	$("#divLoading").html('<img alt="Loading" src="/base/images/icons/loader_02.gif" /><BR> Loading, please wait...');
         $("#VoegToe").hide();
         var myForm    =  $(this).closest('form');
         var formId    =  myForm.attr('id');
@@ -33,10 +30,9 @@ $this->jQuery()->onLoadCaptureStart(); ?>
                                 alert("<?php echo $this->translate('txtAlert1'); ?>");
                             }
                             else {
-                                //location.href="/index/home/";
                                 $('.winkelmand').empty().append(html);
                                 $('#Aantal').val("");
-                                //$('.mainTitle').empty().append("<?php echo ($this->translate('txtToegevoegd')); ?>");
+                                $('#mainTitle').empty().append("<div class='msg_ok'><?php echo ($this->translate('txtToegevoegd')); ?></div>");
                             }
                             $("#VoegToe").show();
                             $("#divLoading").html('');

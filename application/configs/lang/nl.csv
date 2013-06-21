@@ -19,13 +19,13 @@ txtPrijs;Eenheidsprijs
 txtNoIdentity;-Gelieve in te loggen of te registreren om de winkelmand te bestellen 
 txtAlert1;-Aantal verplicht in te vullen
 txtBevestigingBestellingWinkelmand;Druk op OK om de winkelmand te bestellen
-txtToegevoegd;Artikel toegevoegd aan winkelmand
+txtToegevoegd;Item toegevoegd aan uw winkelwagen
 txtFoto;Foto
 btnRegister;Registreer
 btnLostPassword;Wachtwoord vergeten
 lblVoornaam;Voornaam
 txtProduct;Product
-txtRegisterEmail;Bedankt om te registreren, na ontvangst e-mail , kan u inloggen in onze webshop
+txtRegisterEmail;Bedankt om u te registreren.U kan nu inloggen.
 txtWinkelmand;Winkelwagen
 txtWinkelmandLeegmaken;Winkelmand leegmaken
 menuPagina;Pagina's
@@ -67,3 +67,4 @@ lblReferentie;Geef uw referentie van uw bestelling op
 lblBestellen;Bestellen
 lblUwBestellingen;Uw bestellingen
 txtNoAccess;-Geen toegang tot deze pagina
+menuTaal;Taal

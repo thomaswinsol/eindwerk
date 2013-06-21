@@ -17,16 +17,19 @@ abstract class My_Controller_Action extends Zend_Controller_Action
         {
             $_SESSION['context']=array('winkelmand'=>null);
         }
-        if (!isset($_SESSION['context']['Firma'])) {
+        if (!isset($_SESSION['context']['winkelmand'])) {
+             $_SESSION['context']['winkelmand']=null;
+        }
+        if (!isset($_SESSION['context']['firma'])) {
             $firmaModel = new Application_Model_Firma();
             $firma= $firmaModel->getOne(1);
-            $_SESSION['context']['Firma']=$firma;            
+            $_SESSION['context']['firma']=$firma;
         }
         $module = $this->getRequest()->getModuleName();
-        if (strtolower($module)=="admin") {
+        /*if (strtolower($module)=="admin") {
            unset($_SESSION['context']['winkelmand']);
            unset($_SESSION['context']['Firma']);
-        }
+        }*/
         $this->context = $_SESSION ['context'];        
         $this->flashMessenger = $this->_helper->getHelper('FlashMessenger');
         $this->flashMessenger->setNamespace('Errors');       

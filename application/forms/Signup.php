@@ -1,5 +1,4 @@
 <?php
-
 class Application_Form_Signup extends My_Form {
 
     public function init(){

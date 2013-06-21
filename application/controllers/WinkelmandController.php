@@ -39,10 +39,12 @@ class WinkelmandController extends My_Controller_Action
          $this->flashMessenger->setNamespace('Errors');
          $tr= Zend_Registry::get('Zend_Translate');
          $error = (int) $this->_getParam('error');
+         // Bestellen enkel mogelijk indien ingelogd
          if ($error==1){
             $this->flashMessenger->addMessage($tr->translate('txtNoIdentity'));
             $this->_helper->redirector('register', 'gebruiker');
          }
+         // Geen toegang (ACL)
          if ($error==2){
             $this->flashMessenger->addMessage($tr->translate('txtNoAccess'));
             $this->_helper->redirector('home', 'index');
@@ -86,10 +88,8 @@ class WinkelmandController extends My_Controller_Action
         if (isset($this->context['winkelmand'])) {
             $this->view->winkelmand=$this->context['winkelmand'];
         }
-        $bestellen = (int) $this->_getParam('bestellen');
-        if (isset($bestellen) and $bestellen) {
-            $this->view->form = new Application_Form_Bestelwinkelmand;
-        }
+        
+        $this->view->form = new Application_Form_Bestelwinkelmand;
 
         if ($this->getRequest()->isPost()){
             $postParams= $this->getRequest()->getPost();
@@ -103,11 +103,11 @@ class WinkelmandController extends My_Controller_Action
     }
 
 
-    public function bestellen($referentie)
+    private function bestellen($referentie)
     {
         $this->_helper->viewRenderer->setNoRender();
-        // Bestelling header
         $bestellingheaderModel = new Application_Model_Bestellingheader();
+        // Ophalen id gebruiker
         $auth = Zend_Auth::getInstance();
         if ($auth->hasIdentity() ) {
             $gebruiker= $auth->getIdentity();
@@ -128,6 +128,7 @@ class WinkelmandController extends My_Controller_Action
 
 
      public function bestellingtonenAction() {
+        // Afbeelden datagrid bestellingen
         $this->_helper->layout->enableLayout();
         try
         {
@@ -141,6 +142,7 @@ class WinkelmandController extends My_Controller_Action
     }
 
     public function showpdfAction(){
+        // Opvragen pdf bestelling
     	$this->_helper->layout->disableLayout();
     	$this->_helper->viewRenderer->setNoRender();
 

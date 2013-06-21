@@ -12,7 +12,6 @@ class Application_Model_Bestellingheader extends My_Model
 
     public function save($data,$id = NULL)
     {
-    	//ini
     	$currentTime =  date("Y-m-d H:i:s", time());
         $dbFields = array(
         	'IDGebruiker'       => $data['IDGebruiker'],
@@ -60,12 +59,13 @@ class Application_Model_Bestellingheader extends My_Model
     {
             $sql = $this->db
             ->select()
-            ->from(array('h' => 'bestellingheader'), array('id','datumbestelling', 'referentie','status',) )
-            ->join(array('d' => 'bestellingdetail'), ' h.id = d.IDBestelling  ', array('sum(totaal) as totaal') );
+            ->from(array('h' => 'bestellingheader'), array('id','datumbestelling', 'referentie','status','IDGebruiker') )
+            ->join(array('d' => 'bestellingdetail'), ' h.id = d.IDBestelling  ', array('sum(totaal) as totaal') )
+            ->group(array('id','datumbestelling', 'referentie','status','IDGebruiker') );
             if (!empty($userid)) {
                 $sql->where ('h.IDGebruiker = '.(int)$userid);
             }
-            $data = $this->db->fetchAll($sql);            
+            $data = $this->db->fetchAll($sql);
             return $data;
     }
 
@@ -79,6 +79,7 @@ class Application_Model_Bestellingheader extends My_Model
             ->join(array('d' => 'bestellingdetail'), ' h.id = d.IDBestelling  ', array('IDProduct','AantalBesteld','Prijs','Totaal') )
             ->join(array('p' => 'product'), ' p.id = d.IDProduct  ', array('label') )
             ->join(array('v' => 'product_vertaling'), ' p.id = v.product_id  ', array('titel','teaser','inhoud','vertaald', 'taal_id') )
+            ->join(array('u' => 'gebruiker'), ' u.id = h.IDGebruiker  ', array('naam','email') )
             ->join(array('t' => 'taal'), ' t.id = v.taal_id  ', array('code', 'status as t.satus') );;
             $sql->where ('t.code = '."'".$taalcode."'");
             if (!empty($bestellingid)) {
@@ -136,25 +137,42 @@ class Application_Model_Bestellingheader extends My_Model
 		//set auto page breaks
                 /*$pdf->SetAutoPageBreak(true, PDF_MARGIN_BOTTOM);*/
 		$pdf->SetAutoPageBreak(true,5);
-		//set image scale factor
-			$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
-		//initialize document
-                        $pdf->AliasNbPages();
-
+		$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+                $pdf->AliasNbPages();
 
                 $counter=0;
                 $totaal =0;
                 $pdf->AddPage("P","A4");
-                $this->printHeader($pdf, $klant);
-                foreach ($detail as $d) {
-                       
-                                $this->printFooter($pdf);
-                                $pdf->SetFont('helvetica','',10);
-                                $pdf->AddPage("P","A4");
-	                        $current_x = $pdf->GetX();
-                                $current_y = $pdf->GetY();
-
+                $pdf->SetFont('helvetica','',10);
+                $this->printHeader($pdf, $bestelling);
+                $totaal=0;
+                foreach ($bestelling as $b) { 
 			$counter++;
+
+                        $pdf->Cell(10,5,$counter,0,0,'C');
+                        $pdf->Cell(50,5,$b['titel'],0,0,'L');
+                        if ($b['AantalBesteld']>0) {
+                            $pdf->Cell(20,5,number_format($b['AantalBesteld'],2,",",""),0,0,'R');
+                        } else {
+                            $pdf->Cell(20,5,'',0,0,'L');
+                        }
+                        if ($b['Prijs']>0) {
+                            $pdf->Cell(20,5,number_format($b['Prijs'],2,",",""),0,0,'R');
+                        }
+                        else {
+                             $pdf->Cell(20,5,'',0,0,'L');
+                        }
+                        $totaal+=$b['Totaal'];
+                        if ($b['Totaal']>0 ) {
+                            $pdf->Cell(20,5,number_format($b['Totaal'],2,",",""),0,0,'R');
+                        }
+                        else {
+                             $pdf->Cell(20,5,'',0,0,'L');
+                        }
+                        $pdf->ln(5);
+                }
+                if ($counter>0) {
+                    $this->printFooter($pdf, $totaal);
                 }
     
                 $fileName = "Bestelling".trim($id).'.pdf';
@@ -164,19 +182,34 @@ class Application_Model_Bestellingheader extends My_Model
 
     private function printHeader($pdf, $bestelling)
     {
-
-		$pdf->SetFont('helvetica','B',22);
-		$pdf->ln(1);
-
-
-		$pdf->Cell(120,5,"",0,0,'C');
-		$pdf->Cell(10,5,$klant['Naam'],0,0,'L');
 		$pdf->ln(5);
+		$pdf->Cell(10,5,"Bestelbon"." : ".$bestelling[0]['id'],0,0,'L');
+                $pdf->ln(5);
+                $pdf->Cell(10,5,"Datum bestelling"." : ".$bestelling[0]['datumbestelling'],0,0,'L');
+                $pdf->ln(5);
+                $pdf->Cell(10,5,"Referentie"." : ".$bestelling[0]['referentie'],0,0,'L');
+                $pdf->ln(5);
+                $pdf->Cell(10,5,"Opgemaakt door"." : ".$bestelling[0]['naam']." (".trim($bestelling[0]['email']).")",0,0,'L');
 
+                $pdf->ln(10);
+                        $pdf->Cell(10,5,'Nr.',1,0,'C');
+                        $pdf->Cell(50,5,'Product',1,0,'C');
+                        $pdf->Cell(20,5,'Aantal',1,0,'C');
+                        $pdf->Cell(20,5,'Prijs',1,0,'C');
+                        $pdf->Cell(20,5,'Totaal',1,0,'C');
 		$pdf->ln(5);
-
     }
 
+    private function printFooter($pdf, $totaal)
+    {
+                $pdf->ln(10);
+                        $pdf->Cell(10,5,'',0,0,'C');
+                        $pdf->Cell(50,5,'',0,0,'C');
+                        $pdf->Cell(20,5,'',0,0,'C');
+                        $pdf->Cell(20,5,'Totaal',1,0,'R');
+                        $pdf->Cell(20,5,number_format($totaal,2,",",""),1,0,'C');
+		$pdf->ln(5);
+    }
          
 }
 

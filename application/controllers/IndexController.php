@@ -13,7 +13,7 @@ class IndexController extends My_Controller_Action
         $this->flashMessenger->setNamespace('Errors');
         $this->view->flashMessenger = $this->flashMessenger->getMessages();
 
-        $form = new Application_Form_ZoekProduct;                
+        $form = new Application_Form_Search;
         if ($this->getRequest()->isPost()){
             $postParams= $this->getRequest()->getPost();
             if (!$form->isValid($postParams)) {
