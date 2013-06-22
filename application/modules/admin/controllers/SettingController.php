@@ -1,7 +1,7 @@
 <?php
 class admin_SettingController extends My_Controller_Action
 {    
-    public function setlocaleAction()
+    public function setlocalelijstAction()
     {
 
         $form = new admin_Form_Locale;
@@ -19,7 +19,7 @@ class admin_SettingController extends My_Controller_Action
             $localeModel->updateLocale($data,$values,"not");
             $data['status']=1;
             $localeModel->updateLocale($data,$values);
-            $this->_helper->redirector('setlocale', 'setting', 'admin');
+            $this->_helper->redirector('setlocalelijst', 'setting', 'admin');
         }
         $form->populate($locale);
         $this->view->form= $form;

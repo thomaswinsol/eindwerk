@@ -6,7 +6,7 @@ class admin_Form_Locale extends My_Form {
         $this->setMethod(Zend_Form::METHOD_POST);
         //$this->setAttrib('enctype', 'multiparts/form-data');
         $this->setAttrib('enctype', Zend_Form::ENCTYPE_MULTIPART);
-        $this->setAction('/admin/setting/setlocale');
+        $this->setAction('/admin/setting/setlocalelijst');
 
         $localeModel = new Application_Model_Locale();
         $defaultOptions = array('key'=> 'id', 'value' =>'omschrijving', 'emptyRow' => False);
