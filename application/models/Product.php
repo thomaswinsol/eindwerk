@@ -4,13 +4,13 @@ class Application_Model_Product extends My_Model
     protected $_name = 'product'; //table name
     protected $_sName = 'product_vertaling.product';
     protected $_id    = 'id';
-    protected $model_fields = array( array("name"=> "eenheidsprijs", "type"=>"decimal"), array("name"=> "eenheidsprijs", "type"=>"decimal") );
+    protected $model_fields = array( array("name"=> "eenheidsprijs", "type"=>"decimal", "required"=>"true") );
     protected $lang_fields = array('titel', 'teaser', 'inhoud');
     protected $status= 'Productstatus';
 
-    const LIMIT=20;
+    const LIMIT=16;
 
-    public function getProducten($data=null, $status=null)
+    public function getProducten($data=null)
     {
             $locale= Zend_Registry::get('Zend_Locale');
            
@@ -23,26 +23,18 @@ class Application_Model_Product extends My_Model
 
             $sql->where ('t.code = '."'".$taalcode."'");
             $sql->limit(self::LIMIT);
-            //die($sql);
-            // Status= inactief
-            if (empty($status)) {
-                $sql->where ('p.status <>2 ');
+
+            if (!empty($data['status'])) {
+                $sql->where ('p.status = '.(int)$data['status']);
             }
            
-        $selectie=null;
         if (!empty($data['Categorie'])){
             $sql->join(array('c' => 'product_categorie'), ' p.id = c.idproduct  ', array('c.idcategorie') );
             $sql->where ('c.idcategorie = '. (int)$data['Categorie'] );
-            $selectie=1;
         }
         if (!empty($data['titel'])){
             $sql->where ('v.titel like '."'%".trim($data['titel'])."%'");
-            $selectie=1;
         }
-         // Status: In de kijker
-            if (empty($selectie)) {
-                $sql->where ('p.status = 3 ');
-            }
         $data = $this->db->fetchAll($sql);
 
         return $data;

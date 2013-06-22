@@ -9,9 +9,7 @@ class Application_Form_Search extends My_Form  {
         $this->setAttrib('enctype', Zend_Form::ENCTYPE_MULTIPART);
         $this->setAction('/index/home');
 
-        // element ID
-        $this->addElement(new Zend_Form_Element_Hidden('ID',array( )));
-        // element Categorie
+        // element categorie
         $categorieModel = new Application_Model_Categorie();
         $defaultOptions = array('key'=> 'id', 'value' =>'titel', 'emptyRow' => True);
         $categorie = $categorieModel->buildSelect($defaultOptions);
@@ -27,8 +25,21 @@ class Application_Form_Search extends My_Form  {
             'validators' => array( array('StringLength',true, array('max'=>255)))
             )));
 
+         // element productstatus
+        $productstatusModel = new Application_Model_Productstatus();
+        $defaultOptions = array('key'=> 'id', 'value' =>'omschrijving', 'emptyRow' => True);
+        $where='id>2 and status=1';
+        $productstatus = $productstatusModel->buildSelect($defaultOptions,$where);
+        $elem = new Zend_Form_Element_Select('status');
+        $elem->setLabel('txtExtra')
+             ->setMultiOptions($productstatus);
+        $this->addElement($elem);
+
         $this->setElementDecorators($this->elementDecorators);
 
+        // element ID
+        $this->addElement(new Zend_Form_Element_Hidden('ID',array()));
+        
         // button zoeken
         $this->addElement(new Zend_Form_Element_Button('Zoeken', array(
             'type'=>"submit",

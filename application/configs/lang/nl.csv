@@ -6,7 +6,7 @@ btnInloggen;Inloggen
 txtWelkom;Welkom
 menuHome;Home
 menuFoto;Foto's
-txtTitel;Titel
+txtTitel;Artikel
 txtTeaser;Teaser
 txtOpmerking;Opmerking
 btnVoegtoe;Voeg toe aan winkelmand
@@ -78,3 +78,4 @@ lblFax;Fax
 lblEmail;Email
 lblBTWnummer;BTW-nummer
 lblWebsite;Website
+txtExtra;Extra

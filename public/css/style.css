@@ -446,6 +446,8 @@ section.search {
     border: 0px;
 }
 
+dt { height:0px; }
+dd { line-height:0px; }
 
 @media screen and (max-width: 650px) {   
     aside {

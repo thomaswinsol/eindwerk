@@ -37,7 +37,7 @@ class admin_Form_Detail extends My_Form
         $this->addElement(new Zend_Form_Element_Text('label',array(
             'label'=>"lbllabel",
             'required'=>true,
-            'size'=>20,
+            'size'=>15,
             'maxlength'=>20,
             'filters' => array('StringTrim')
             )));
@@ -72,6 +72,7 @@ class admin_Form_Detail extends My_Form
                         $this->addElement(new Zend_Form_Element_Text($field,array(
                         'label'=>"lbl".$field,
                         'size'=>10,
+                        'required'=>$modelfield['required'],
                         'maxlength'=>10,
                         'filters' => array('StringTrim') ,
                         'class'=>"onlyDecimals",
@@ -92,7 +93,8 @@ class admin_Form_Detail extends My_Form
                         'label'=>$langfield,
                         'filters' => array('StringTrim'),
                         'cols'=>30,
-                        'rows'=>6
+                        'rows'=>6,
+                        'validators' => array( array('StringLength',true, array('max'=>255)))
                         )));
                     }
                     else {
