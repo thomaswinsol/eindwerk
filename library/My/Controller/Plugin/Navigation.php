@@ -14,6 +14,7 @@ class My_Controller_Plugin_Navigation extends Zend_Controller_Plugin_Abstract
         if ($auth->hasIdentity() ) {
             $gebruiker= $auth->getIdentity();
             $role = $gebruiker->idrole;
+            die("role".$gebruiker->idrole);
         }
 
         $menuModel = new Application_Model_Menu();
