@@ -58,7 +58,7 @@
                 foreach($this->fotos as $f) {
             ?>
                 <?php $source="/".$this->escape($f['filePath']).$this->escape($f['fileName']); ?>
-                <a class="fancybox" href="<?php echo $source; ?>" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet">
+                <a class="fancybox" href="<?php echo $source; ?>" data-fancybox-group="gallery" title="<?php echo $this->escape(($this->product['titel'])); ?>">
 
                 <img class="productimage-3" alt="" src="<?php echo $source; ?>">
                 
