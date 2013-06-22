@@ -165,6 +165,42 @@ nav {
     width:300px;
 }
 
+#paginainfo {
+    border:2px solid #C9C9C9;
+    margin-left:15px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    float:left;
+    margin-top:10px;
+    width:100%;
+    background:#fff;
+}
+
+.title-pagina {
+    color: #000000;
+    font-family: Arial;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.teaser-pagina {
+    color: #000000;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: normal;
+}
+.pagina-desc {
+    clear: both;
+    color: #4C4C4C;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 0 0 10px;
+    padding-top: 10px;
+    width:90%;
+    word-wrap: break-word;
+    overflow: hidden;
+}
 
 #productinfo {
     border:2px solid #C9C9C9;

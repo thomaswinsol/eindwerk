@@ -46,7 +46,12 @@ class Zend_View_Helper_ToonWinkelmand extends Zend_View_Helper_Abstract
                 $totaal += ($product['eenheidsprijs']*$value);
                 if ($detail){
                     $html .= "<tr>";
-                        $html .= "<td class='foto'>". ($this->view->GetFoto($product['id']))."</td>";
+                        $html .= "<td class='foto'>";
+                        $html .=
+                         "<a href='".($this->view->url(array('module'=> 'default', 'controller'=>'index' , 'action'=>'productinfo', 'id'=>$this->view->escape($product['id']))))."'>".
+                        ($this->view->GetFoto($product['id'])) .
+                         "</a>";
+                        $html .= "</td>";
                         $html .= "<td class='price'>".$product['titel']."</td>";
                         $html .= "<td class='price'>".$value."</td>";
                         $html .= "<td class='price'>".$this->view->ShowCurrency($product['eenheidsprijs'])."</td>";
