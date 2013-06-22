@@ -14,10 +14,18 @@ class Zend_View_Helper_ToonLocale extends Zend_View_Helper_Abstract
         $params    = Zend_Controller_Front::getInstance()->getRequest()->getParams();
         //var_dump($params);
         $paramurl=null;
-        $inarray= array("controller","action","module","lang");
-        foreach ($params as $key => $value){
-            if (!in_array($key, $inarray)) {
-                $paramurl .="/".trim($key)."/".$value;
+        if (is_array($params)) {
+            $inarray= array("controller","action","module","lang");
+            foreach ($params as $key => $value){
+                if (!in_array($key, $inarray)) {
+                    try {
+                    $paramurl .="/".trim($key)."/".$value;
+                    }
+                    catch (Exception $e)
+                    {
+                        $paramurl="";
+                    }
+                }
             }
         }
         if (trim($module)=='default') {
