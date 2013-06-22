@@ -130,7 +130,7 @@ class GebruikerController extends My_Controller_Action
             $templateName = My_Controller_Plugin_Mail::TEMPLATE_LOST_PASSWORD;
             $data['eId'] = $gebruikerModel->saveIdentifier($gebruiker['id']);
             $data['email'] = $userRow['username'];
-            $data['url']   = $this->getFullUrl() .'/dealergebruiker/reset/eId/' . $data['eId'];
+            $data['url']   = '/gebruiker/reset/eId/' . $data['eId'];
             $this->mail->send($templateName,$data);
             //$this->_helper->redirector('lost',$this->getRequest()->getControllerName(),false,array('msg' => 1));
             $this->_redirect('/Index/Home');
