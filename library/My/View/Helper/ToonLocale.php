@@ -12,7 +12,7 @@ class Zend_View_Helper_ToonLocale extends Zend_View_Helper_Abstract
         $controller= Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
         $action    = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
         $params    = Zend_Controller_Front::getInstance()->getRequest()->getParams();
-
+        //var_dump($params);
         $paramurl=null;
         $inarray= array("controller","action","module","lang");
         foreach ($params as $key => $value){
