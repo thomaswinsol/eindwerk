@@ -38,6 +38,7 @@ class admin_Form_Detail extends My_Form
             'label'=>"lbllabel",
             'required'=>true,
             'size'=>20,
+            'maxlength'=>20,
             'filters' => array('StringTrim')
             )));
         // element status

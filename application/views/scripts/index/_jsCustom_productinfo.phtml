@@ -9,16 +9,15 @@ $this->jQuery()->onLoadCaptureStart(); ?>
             var newValue = $(this).val().replace(/[^0-9\.,]/g,'');
             $(this).val(newValue);
         });
-
+        
         // Voeg item toe aan winkelmand
-       $("#VoegToe").click(function(event) {
+       $(".add_to_cart_image_button").click(function(event) {
      	event.preventDefault();
      	$("#divLoading").html('<img alt="Loading" src="/base/images/icons/loader_02.gif" /><BR> Loading, please wait...');
-        $("#VoegToe").hide();
+        $(".add_to_cart_image_button").hide();
         var myForm    =  $(this).closest('form');
         var formId    =  myForm.attr('id');
         var formdata  = myForm.serialize();
-
         $.ajax({
           type: "POST",
           dataType: "json",
@@ -34,7 +33,7 @@ $this->jQuery()->onLoadCaptureStart(); ?>
                                 $('#Aantal').val("");
                                 $('#mainTitle').empty().append("<div class='msg_ok'><?php echo ($this->translate('txtToegevoegd')); ?></div>");
                             }
-                            $("#VoegToe").show();
+                            $(".add_to_cart_image_button").show();
                             $("#divLoading").html('');
           		}
            });

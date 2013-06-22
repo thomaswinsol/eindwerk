@@ -7,13 +7,13 @@ class Zend_View_Helper_ShowCurrency extends Zend_View_Helper_Abstract
         if (!empty($amount)) {
             $currency = new Zend_Currency();
             $converted_amount=$this->GetExchangeRate($currency->getShortName(),$amount);
-            if ($converted_amount===null)
+            /*if ($converted_amount===null)
             {
                 return null;
             }
-            else {
+            else {*/
                 return $currency->toCurrency($converted_amount);
-            }
+            /*}*/
         }
         else {
             return "";

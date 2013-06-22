@@ -166,28 +166,110 @@ nav {
 }
 
 
-div.productinfo {
-    border:1px solid #C9C9C9;
+#productinfo {
+    border:2px solid #C9C9C9;
+    margin-left:15px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    float:left;
+    margin-top:10px;
+    width:100%;
+    background:#fff;
+}
+
+#viewerImage {
+    width:37.4%
+    height:360px;
+    float:left;
+    text-align:center;
+    margin-left:5px;
+}
+
+#viewerInfo {
+    width:57.6%;
+    height:360px;
+    float:left;
     margin-left:10px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    float:left;
-    background-color: #fff;
+}
+
+.title-product {
+    color: #000000;
+    font-family: Arial;
+    font-size: 22px;
+    font-weight: normal;
+}
+.teaser-product {
+    color: #000000;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: normal;
+}
+.prod-desc {
+    clear: both;
+    color: #4C4C4C;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 14px;
+    margin: 0 0 10px;
+    padding-top: 10px;
+    width:90%;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+.prod-status {
+    color: #000000;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: normal;
+    color:#fff;
+    padding-left:25px;
+    background: -moz-linear-gradient(center top , #F36E1F, #DD4F13) repeat scroll 0 0 transparent;
+}
+
+.prod-price {
+    font-family: Arial;
+    font-size: 46px;
+    font-weight: bold;
+    float:right;
+    clear:both;
+}
+.qty-price {
+    float:right;
     margin-top:10px;
-    width:50%;
+    margin-right:5px;
 }
-
-div.voegtoe {
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    float:left;
-    margin-top:10px;
+.add_to_cart_image_button {
+    display: block;
+    line-height: 18px;
+    padding: 8px 5px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 220px;
 }
-
-p.productinfo {
-    text-decoration: underline;
+.add_to_cart_button {
+    clear:both;
+    float:right;
+    padding-top:5px;
+    background: -moz-linear-gradient(center top , #F36E1F, #DD4F13) repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: bold;
+    height: 40px;
+    text-decoration: none;
+    width: 220px;
+    -moz-border-radius: 25px 25px 25px 25px;
+    border-radius: 25px 25px 25px 25px;
 }
-
+.add_to_cart_button > a{
+    color:white;
+    text-decoration:none;
+}
+.add_to_cart_button:hover {
+    background: -moz-linear-gradient(center top , #DD4F13, #F36E1F) repeat scroll 0 0 transparent;
+}
 
 
 section.firma
@@ -223,13 +305,6 @@ section.winkelmand li {
 
 section.winkelmand.img { width:15%;}
 
-h1.productinfo{
-     background-color:#DEDEDE;
-     -moz-border-radius: 5px;
-     border-radius: 5px;
-     text-align:center;
-     margin-left:0px;
-}
 
 section.login {
         margin-top:5px;
@@ -324,26 +399,10 @@ section.search {
     overflow: hidden;
     width: 209px;
 }
+
 .productimage {height:120px;}
+.productimage-2 {height:360px;}
 
-
-textarea.productinfo {
-    height:100px;
-    resize:none;
-    border: 0px;
-}
-
-.btnbasket {
-    background-image: url(/base/images/icons/icon_basket.png); /* 16px x 16px */
-    background-color: transparent; /* make the button transparent */
-    background-repeat: no-repeat;  /* make the background image appear only once */
-    background-position: 0px 0px;  /* equivalent to 'top left' */
-    border: none;           /* assuming we don't want any borders */
-    cursor: pointer;        /* make the cursor like hovering over an <a> element */
-    height: 16px;           /* make this the size of your image */
-    padding-left: 16px;     /* make text start to the right of the image */
-    vertical-align: middle; /* align the text vertically centered */
-}
 
 .msg_error{
 	border:1px dashed darkred;
@@ -411,6 +470,18 @@ textarea.productinfo {
     section.login {
         width:260px;
     }
+    section.search {
+        margin-right:0%;
+    }
+    
+    #viewerImage {
+        float:none;
+    }
+    #viewerInfo {
+        float:none;
+        width:90%;
+    }
+
 }
 
 @media screen and (max-width: 900px) {

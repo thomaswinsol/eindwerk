@@ -9,7 +9,7 @@ class Zend_View_Helper_ToonWinkelmand extends Zend_View_Helper_Abstract
         if (count($data)>0) {
         $html .=
             "<div>".
-                 "<a href='".($this->view->url(array('controller'=>'winkelmand' , 'action'=>'winkelmandtonen')))."'>".
+                 "<a href='".($this->view->url(array('module'=> 'default', 'controller'=>'winkelmand' , 'action'=>'winkelmandtonen')))."'>".
                     "<img src='/base/images/icons/icon_basket.png'> ".
                     $this->view->translate("txtWinkelmand")."(". count($data) .
                 ")</a>".
@@ -86,7 +86,7 @@ class Zend_View_Helper_ToonWinkelmand extends Zend_View_Helper_Abstract
         if (isset($_SESSION['context']['bestellingen'])  and ($_SESSION['context']['bestellingen'])>0 ) {
             $html .=
             "<div>".
-                 "<a href='".($this->view->url(array('controller'=>'winkelmand' , 'action'=>'bestellingtonen')))."'>".
+                 "<a href='".($this->view->url(array('module'=> 'default', 'controller'=>'winkelmand' , 'action'=>'bestellingtonen')))."'>".
                     $this->view->translate("lblUwBestellingen")."(". $_SESSION['context']['bestellingen'] .
                 ")</a>".
             "</div>";

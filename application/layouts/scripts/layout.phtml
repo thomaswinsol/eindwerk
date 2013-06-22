@@ -13,11 +13,10 @@ echo $this->doctype().PHP_EOL; ?>
         ?>
     </head>
     
-    <body>
-        
+    <body>        
         <section id="container">
             <aside>
-                <h1 class="hidden">Dit is de linkermarge van de webpagina</h1>
+                <h3 class="hidden">Dit is de linkermarge van de webpagina</h3>
                 <section class="logo">
                  <figure>
                         <img src="/images/logo.png" alt="Logo">
@@ -32,14 +31,14 @@ echo $this->doctype().PHP_EOL; ?>
             </aside>
 
             <header>
-                 <h1 class="hidden">Webhop Eindwerk SyntraWest Webmaster Advanced</h1>
+                 <h1 class="hidden">Webshop Eindwerk SyntraWest Webmaster-Advanced 2013</h1>
                  <section class="lang">
                  <h3 class="hidden">Taalkeuze</h3>
                        <?php echo $this->toonLocale(); ?>
                  </section>
 
                  <nav>
-                    <h2 class="hidden">Dit is de navigatie van de website</h2>
+                    <h3 class="hidden">Dit is de navigatie van de website</h3>
                     <?php
                     $partial = array('menu.phtml', 'default');
                     $this->navigation()->menu()->setPartial($partial);
@@ -50,6 +49,7 @@ echo $this->doctype().PHP_EOL; ?>
 
                 
                 <section class="winkelmand">
+                    <h3 class="hidden">Dit is de winkelmand</h3>
                     <?php
                             if (isset($_SESSION['context']['winkelmand'])){
                                 echo $this->ToonWinkelmand($_SESSION['context']['winkelmand']);
@@ -73,16 +73,16 @@ echo $this->doctype().PHP_EOL; ?>
             </header>
 
             <section id="content">
-                <h1 class="hidden">De content...</h1>
+                <h2 class="hidden">De content...</h2>
                 <section id="mainTitle">
-                <h1 class="hidden">Error messages</h1>
+                <h3 class="hidden">Error messages</h3>
                        <?php echo $this->placeholder('mainTitle') ?>
                 </section>
                 <?php echo $this->layout()->content; ?>
             </section>
 
             <footer>
-                <h1 class="hidden">De footer...</h1>
+                <h3 class="hidden">De footer...</h3>
                  <?php echo $this->ShowFirm($_SESSION['context']['firma']);?>
             </footer>
 
