@@ -223,7 +223,7 @@ nav {
     font-weight: normal;
     color:#fff;
     padding-left:25px;
-    background: -moz-linear-gradient(center top , #F36E1F, #DD4F13) repeat scroll 0 0 transparent;
+    background: #F36E1F;
 }
 
 .prod-price {
@@ -254,7 +254,7 @@ nav {
     clear:both;
     float:right;
     padding-top:5px;
-    background: -moz-linear-gradient(center top , #F36E1F, #DD4F13) repeat scroll 0 0 transparent;
+    background: #F36E1F;
     color: #FFFFFF;
     display: block;
     font-family: Arial;
@@ -271,7 +271,7 @@ nav {
     text-decoration:none;
 }
 .add_to_cart_button:hover {
-    background: -moz-linear-gradient(center top , #DD4F13, #F36E1F) repeat scroll 0 0 transparent;
+    background: #DD4F13;
 }
 
 
