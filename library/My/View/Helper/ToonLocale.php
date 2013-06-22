@@ -16,6 +16,7 @@ class Zend_View_Helper_ToonLocale extends Zend_View_Helper_Abstract
         $paramurl=null;
         if (is_array($params)) {
             $inarray= array("controller","action","module","lang");
+            var_dump($params);
             foreach ($params as $key => $value){
                 if (!in_array($key, $inarray)) {
                     try {
