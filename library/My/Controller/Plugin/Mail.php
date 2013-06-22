@@ -44,7 +44,7 @@ class My_Controller_Plugin_Mail extends Zend_Controller_Plugin_Abstract
      // ---------
      // TEMPLATES
      // ---------     
-     protected function LostPassword($data){
+     protected function template_LostPassword($data){
      	if (empty($data) ){
      		return FALSE;
      	}
