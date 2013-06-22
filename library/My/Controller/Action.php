@@ -11,7 +11,11 @@ abstract class My_Controller_Action extends Zend_Controller_Action
 
     public function init()
     {
-        
+        /*$lang=$this->_getParam('lang');
+        if(!empty($lang)) {
+            $session = new Zend_Session_Namespace('translation');
+            $session->language=$this->_getParam('lang');
+        */
         $defaultNamespace = new Zend_Session_Namespace ();
         if(!array_key_exists('context', $_SESSION))
         {

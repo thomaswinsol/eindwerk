@@ -16,6 +16,10 @@ class My_Controller_Plugin_Translate extends Zend_Controller_Plugin_Abstract
         $locale_default = 'nl_BE';
 
         $session = new Zend_Session_Namespace('translation');
+        if ($request->getParam('lang')){
+             $session->language=$request->getParam('lang');
+        }
+        
         if (isset($session->language) && !empty($session->language)) {
             $langValue   = strtolower( substr($session->language,0,2));
             $localeValue = $session->language;
