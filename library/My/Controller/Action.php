@@ -8,7 +8,8 @@ abstract class My_Controller_Action extends Zend_Controller_Action
     protected $context;
     protected $baseUrl='/eindwerk/public';
     protected $flashMessenger = NULL;
-
+    protected $mail;
+    
     public function init()
     {
         /*$lang=$this->_getParam('lang');
@@ -16,6 +17,7 @@ abstract class My_Controller_Action extends Zend_Controller_Action
             $session = new Zend_Session_Namespace('translation');
             $session->language=$this->_getParam('lang');
         */
+        $this->mail = new My_Controller_Plugin_Mail();
         $defaultNamespace = new Zend_Session_Namespace ();
         if(!array_key_exists('context', $_SESSION))
         {
