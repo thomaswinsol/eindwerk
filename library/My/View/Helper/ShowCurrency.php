@@ -7,13 +7,14 @@ class Zend_View_Helper_ShowCurrency extends Zend_View_Helper_Abstract
         if (!empty($amount)) {
             $currency = new Zend_Currency();
             $converted_amount=$this->GetExchangeRate($currency->getShortName(),$amount);
-            /*if ($converted_amount===null)
+            if ($converted_amount===null)
             {
-                return null;
+                $currency = new Zend_Currency('nl_BE');
+                return $currency->toCurrency($amount);
             }
-            else {*/
+            else {
                 return $currency->toCurrency($converted_amount);
-            /*}*/
+            }
         }
         else {
             return "";
@@ -25,20 +26,20 @@ class Zend_View_Helper_ShowCurrency extends Zend_View_Helper_Abstract
     public function GetExchangeRate($currency,$amount) {
        
         if (trim($currency)=='EUR') {
-            return null;
+            return $amount;
         }
         $number = urlencode("1");
-        $from_GBP0 = urlencode("EUR");
-        $to_usd= urlencode("GBP");
-        $Dallor = "hl=en&q=$number$from_GBP0%3D%3F$to_usd";
-            $US_Rate = file_get_contents("http://google.com/ig/calculator?".$Dallor);
-            if ($US_Rate === false) {
+        $from   = urlencode("EUR");
+        $to     = urlencode($currency);
+        $param   = "hl=en&q=$number$from%3D%3F$to";
+            $result = file_get_contents("http://google.com/ig/calculator?".$param);
+            if ($result === false) {                               
                return null;
             }
-        $US_data = explode('"', $US_Rate);
-        $US_data = explode(' ', $US_data['3']);
-        $var_USD = $US_data['0'];
-        return ($var_USD*$amount);
+        $rate = explode('"', $result);
+        $rate = explode(' ', $rate['3']);
+        $var_rate = $rate['0'];
+        return ($var_rate*$amount);
     }
 
 }

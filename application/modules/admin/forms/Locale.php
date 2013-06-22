@@ -11,7 +11,7 @@ class admin_Form_Locale extends My_Form {
         $localeModel = new Application_Model_Locale();
         $defaultOptions = array('key'=> 'id', 'value' =>'omschrijving', 'emptyRow' => False);
         $locale = $localeModel->buildSelect($defaultOptions);
-        $elem = $this->createElement('Multicheckbox','locale');
+        $elem = $this->createElement('multicheckbox','locale');
 		   	$elem->setLabel("lbllocale")
 			->addMultiOptions($locale )
                         ->setRequired(true);
