@@ -11,7 +11,7 @@ class My_Auth_Acl extends Zend_Controller_Plugin_Abstract {
 
         $acl = new Zend_Acl();
         $roles = array('USER', 'DEALER', 'ADMIN');
-        $controllers = array('admin-index', 'admin-product');
+        $controllers = array('admin-index', 'admin-product', 'admin-foto', 'admin-categorie', 'admin-pagina', 'admin-gebruiker', 'admin-setting');
         foreach($roles as $role) {
             $acl->addRole($role);
         }
@@ -22,8 +22,7 @@ class My_Auth_Acl extends Zend_Controller_Plugin_Abstract {
         }
         $acl->allow('ADMIN');  //acces to everything
         $acl->allow('DEALER'); //acces to everything
-        /*$acl->deny('USER', 'admin-index');
-        $acl->deny('USER', 'admin-product');  */
+        $acl->deny('DEALER', 'admin-setting');
         Zend_Registry::set('Zend_Acl', $acl);
 
     }

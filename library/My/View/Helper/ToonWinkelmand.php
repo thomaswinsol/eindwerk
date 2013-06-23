@@ -65,7 +65,7 @@ class Zend_View_Helper_ToonWinkelmand extends Zend_View_Helper_Abstract
                 if ($detail){
                 $html .= "<tfoot>";
                 $html .= "<tr>";
-                $html .= "<td colspan=3 class='price'>Totaal</td>";
+                $html .= "<td colspan=3 class='price'>". $this->view->translate("lblTotaal") ."</td>";
                     $html.= "<td class='price'>". $this->view->ShowCurrency($totaal)."</td>";
                 $html .= "</tr>";
                     $html .= "<tr>";

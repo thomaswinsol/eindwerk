@@ -18,14 +18,18 @@
         // - redirect to registration page
         if (!$auth->hasIdentity() )
         {
+            if($request->getModuleName()!='default') {
+                $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
+                $redirector->gotoUrl('/winkelmand/noaccess/error/2');
+            }
             $controllerName = $request->getControllerName();
             $actionName     = $request->getActionName();           
 
             if (array_key_exists($controllerName,$this->_includeAuthActions)
                     && in_array($actionName,$this->_includeAuthActions[$controllerName])) {
-                 $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
+                $redirector = Zend_Controller_Action_HelperBroker::getStaticHelper('redirector');
                 $redirector->gotoUrl('/winkelmand/noaccess/error/1');
-            }            
+            }
         }
         else {
             $acl = Zend_Registry::get('Zend_Acl');
