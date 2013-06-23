@@ -211,6 +211,7 @@ nav {
     margin-top:10px;
     width:100%;
     background:#fff;
+    position:relative;
 }
 
 .viewerImage {
@@ -276,6 +277,8 @@ nav {
 }
 .prod-foto {
     clear:both;
+    position:absolute;
+    top:250px;
 }
 .add_to_cart_image_button {
     display: block;

@@ -1,81 +1,82 @@
-﻿?# Nederlands;
-lblPaswoord;Paswoord
-lblEmail;E-mail
-txtInloggen;Inloggen
+﻿"?# Nederlands	"
 btnInloggen;Inloggen
-txtWelkom;Welkom
-menuHome;Home
-menuFoto;Foto's
-txtTitel;Artikel
-txtTeaser;Teaser
-txtOpmerking;Opmerking
-btnVoegtoe;Voeg toe aan winkelmand
-txtAantal;Aantal
-txtProductInfo;Product Info
-txtLabel;Label
-txtCategorie;Categorie
-txtBestellen;Bestellen
-txtPrijs;Eenheidsprijs
-txtNoIdentity;-Gelieve in te loggen of te registreren om de winkelmand te bestellen 
-txtAlert1;-Aantal verplicht in te vullen
-txtBevestigingBestellingWinkelmand;Druk op OK om de winkelmand te bestellen
-txtToegevoegd;Item toegevoegd aan uw winkelwagen
-txtFoto;Foto
-btnRegister;Registreer
 btnLostPassword;Wachtwoord vergeten
-lblVoornaam;Voornaam
-txtProduct;Product
-txtRegisterEmail;Bedankt om u te registreren.U kan nu inloggen.
-txtWinkelmand;Winkelwagen
-txtWinkelmandLeegmaken;Winkelmand leegmaken
-menuPagina;Pagina's
-lbllabel;label
 btnOpslaan;Opslaan
-txtNewPage;Nieuwe pagina
-lblstatus;status
-lblPagina;Pagina
-title_nl;Titel
-nl;Nederlands
-titel;Titel
-teaser;Teaser
-inhoud;Inhoud
-fr;Français
-lblFoto;Foto
-lbleenheidsprijs;Eenheidsprijs
-lblhomepage;Afbeelden op homepagina
-menuProduct;Producten
-menuCategorie;Categorieën
-txtNewProduct;Nieuw product
-lblCategorie;Categorie
-txtNewCategorie;Nieuwe categorie
-txtselectiefoto;Productfoto's
-lblProduct;Product
-txtselectiecategorie;Productcategorieën
-Frans;Français
-en;Engels
+btnRegister;Registreer
+btnVerzenden;Verzenden
+btnVoegtoe;Voeg toe aan winkelmand
 de;Duits
+en;Engels
 es;Spaans
-txtProductInDeKijker;Product in de kijker
-txtUserAlreadyRegistrated;-Dit e-mail adres is reeds geregistreerd
-menuUser;Gebruikers
+fr;Français
+Frans;Français
+inhoud;Inhoud
+lblAantal;Aantal
+lblBestellen;Bestellen
+lblBTWnummer;BTW-nummer
+lblCategorie;Categorie
+lbleenheidsprijs;Eenheidsprijs
+lblEmail;Email
+lblEmail;E-mail
+lblFax;Fax
+lblFirma;Firma
+lblFoto;Foto
 lblGebruiker;Gebruiker
 lblGebruikerstatus;Status gebruiker
-btnVerzenden;Verzenden
-txtEmailNotFound;-E-mailadres is niet geregistreerd
-txtLostPassword;Wachtwoord vergeten
-lblReferentie;Geef uw referentie van uw bestelling op
-lblBestellen;Bestellen
-lblUwBestellingen;Uw bestellingen
-txtNoAccess;-Geen toegang tot deze pagina
-menuTaal;Taal
-menuFirma;Firma
-lblFirma;Firma
-lblStraat;Straat
-lblPostcode;Postcode
 lblGemeente;Gemeente
+lblindewinkelwagen;in de winkelwagen
+lbllabel;label
+lblPagina;Pagina
+lblPaswoord;Paswoord
+lblPostcode;Postcode
+lblProduct;Product
+lblReferentie;Geef uw referentie van uw bestelling op
+lblstatus;status
+lblStraat;Straat
 lblTel;Tel
-lblFax;Fax
-lblEmail;Email
-lblBTWnummer;BTW-nummer
+lblUwBestellingen;Uw bestellingen
+lblVoornaam;Voornaam
 lblWebsite;Website
+menuCategorie;Categorieën
+menuFirma;Firma
+menuFoto;Foto's
+menuHome;Home
+menuPagina;Pagina's
+menuProduct;Producten
+menuTaal;Taal
+menuUser;Gebruikers
+nl;Nederlands
+teaser;Teaser
+titel;Titel
+title_nl;Titel
+txtAantal;Aantal
+txtAlert1;-Aantal verplicht in te vullen
+txtBestellen;Bestellen
+txtBevestigingBestellingWinkelmand;Druk op OK om de winkelmand te bestellen
+txtCategorie;Categorie
+txtEmailNotFound;-E-mailadres is niet geregistreerd
 txtExtra;Extra
+txtFoto;Foto
+txtInloggen;Inloggen
+txtLabel;Label
+txtLostPassword;Wachtwoord vergeten
+txtNewCategorie;Nieuwe categorie
+txtNewPage;Nieuwe pagina
+txtNewProduct;Nieuw product
+txtNoAccess;-Geen toegang tot deze pagina
+txtNoIdentity;-Gelieve in te loggen of te registreren om de winkelmand te bestellen
+txtOpmerking;Opmerking
+txtPrijs;Eenheidsprijs
+txtProduct;Product
+txtProductInDeKijker;Product in de kijker
+txtProductInfo;Product Info
+txtRegisterEmail;Bedankt om u te registreren.U kan nu inloggen.
+txtselectiecategorie;Productcategorieën
+txtselectiefoto;Productfoto's
+txtTeaser;Teaser
+txtTitel;Artikel
+txtToegevoegd;Item toegevoegd aan uw winkelwagen
+txtUserAlreadyRegistrated;-Dit e-mail adres is reeds geregistreerd
+txtWelkom;Welkom
+txtWinkelmand;Winkelwagen
+txtWinkelmandLeegmaken;Winkelmand leegmaken

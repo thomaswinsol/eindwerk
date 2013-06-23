@@ -4,11 +4,11 @@
             <?php echo $this->getFoto($this->product['id'],2); ?>
     </div>
     <div class="viewerInfo">
-            <h1 class="title-product">
+            <h2 class="title-product">
                 <span>
                     <?php echo $this->escape(($this->product['titel'])); ?>
                 </span>
-            </h1>
+            </h2>
 
             <h2 class="teaser-product">
                 <span>
@@ -40,10 +40,10 @@
         
             <form action="" method="post" enctype="multipart/form-data">
             <div class="add_to_cart_button">
-                <a href="#"><div class="add_to_cart_image_button">In de winkelwagen</div></a>
+                <a href="#"><div class="add_to_cart_image_button"><?php echo $this->translate("lblindewinkelwagen"); ?></div></a>
             </div>
             <div class="qty-price">
-                <label>Aantal</label>
+                <label><?php echo $this->translate("lblAantal"); ?></label>
                 <?php
                 $elemAttribs = array('class' => 'onlyDecimals', 'name' => 'Aantal' , 'style' => 'width:40px; font-size:22px;');
                 echo $this->formText('Aantal',1,$elemAttribs);

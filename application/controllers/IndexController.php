@@ -44,12 +44,9 @@ class IndexController extends My_Controller_Action
         //Ophalen Productfoto's
         $productfotoModel = new Application_Model_Productfoto();
         $this->view->fotos= $productfotoModel->getFotosForProductId($id);
-        //Ophalen Productcategorie�n
+        //Ophalen Productcategorien
         $productcategorieModel = new Application_Model_Productcategorie();
         $this->view->categorie= $productcategorieModel->getCategorieForProduct($id);
-        //Form Voeg toe aan winkelmand
-        $form = new Application_Form_Voegtoe($id);
-        $this->view->form = $form;
     }
 
 

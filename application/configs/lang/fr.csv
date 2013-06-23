@@ -1,44 +1,88 @@
 ﻿?# Français;
-lblPaswoord;Mot de passe
-lblEmail;Adresse E-mail
-txtInloggen;Login
 btnInloggen;Login
-txtWelkom;Bonjour
-menuHome;Home
-menuFotoUpload;Photo Upload
-txtTitel;Titre
-txtTeaser;Teaser
-txtOpmerking;Remarque
-txtFoto;Photo
-txtProductInfo;Info Produit
-txtLabel;Label
-txtTitel;Titel
-txtCategorie;Categorie
-btnVoegtoe;Ajouter
-txtAantal;Aantal
-txtProductInfo;Product info
-txtBestellen;Commander
-txtPrijs;Prix
-txtNoIdenity;Il faut se connecter pour commander
-txtAlert1;Quantité obligatoir
-txtBevestigingBestellingWinkelmand;Appuyez OK pour commander
-txtToegevoegd;Artikel toegevoegd aan winkelmand
-txtFoto;Photo
-btnRegister;Registrer
 btnLostPassword;Oublier mot de passe
-lblVoornaam:Prénom
-txtProduct;Produit
-txtRegisterEmail;Een e-mail werd naar u verstuurd. Gelieve te klikken op de link om uw account te activeren
-txtWinkelmand;Chariot
-txtWinkelmandLeeg;Winkelmand is leeg
-txtWinkelmandLeegmaken;Vider
-menuPages;Pages
-txtNewPage;Nieuwe pagina
-lblstatus;status
-lblPagina;Pagina
-titel;Titel
-teaser;Teaser
-inhoud;Inhoud
+btnOpslaan;Enrégistrer
+btnRegister;Régistrer
+btnVerzenden;Envoyer
+btnVoegtoe;Ajouter au chariot
+de;Allemand
+en;Anglais
+es;Espagnol
+Engels(GB);Anglais(GB)
+Engels(US);Anglais(US)
 fr;Français
 Frans;Français
-Titel;Titre
+inhoud;Contenu
+lblAantal;Quantité
+lblBestellen;Commander
+lblBTWnummer;Numéro TVA
+lblCategorie;Categorie
+lbleenheidsprijs;Prix unitair
+lblEmail;Email
+lblEmail;E-mail
+lblFax;Fax
+lblFirma;Firme
+lblFoto;Photo
+lblGebruiker;Utilisateur
+lblGebruikerstatus;Status utilisateur
+lblGemeente;Ville
+lblindewinkelwagen;in de winkelwagen
+lbllabel;label
+lblPagina;Page
+lblPaswoord;Mot de passe
+lblPostcode;Code postale
+lblProduct;Produit
+lblReferentie;Veuillez donner votre référence pour cette commande
+lblstatus;status
+lblStraat;Rue
+lblTel;Tel
+lblUwBestellingen;Votres commandes
+lblVoornaam;Prénom
+lblWebsite;Site
+lblindewinkelwagen;Ajouter au chariot
+menuCategorie;Categories
+menuFirma;Firme
+menuFoto;Photo
+menuHome;Home
+menuPagina;Pages
+menuProduct;Produits
+menuTaal;Langues
+menuUser;Utilisateurs
+nl;Néerlandais
+Nederlands;Néerlandais
+product in de kijker; produit sous la loupe
+teaser;Teaser
+titel;Titre
+title_nl;Titre
+txtAantal;Quantité
+txtAlert1;-Quantité obligatoir de remplir
+txtBestellen;Commander
+txtBevestigingBestellingWinkelmand;Appuyez OK pour commander le chariot
+txtCategorie;Categorie
+txtEmailNotFound;-Adresse email n'est pas régistré
+txtExtra;Extra
+txtFoto;Photo
+txtInloggen;Inloggen
+txtLabel;Label
+txtLostPassword;Oublier mot de passe
+txtNewCategorie;Nouvelle catégorie
+txtNewPage;Nouvelle page
+txtNewProduct;Nouveau produit
+txtNoAccess;-Pas accès à cette page
+txtNoIdentity;-Veuilleze se connecter ou enrégistrer pour commander
+txtOpmerking;Remarque
+txtPrijs;Prix unitair
+txtProduct;Produit
+txtProductInDeKijker;Produit sous la loupe
+txtProductInfo;Info produit
+txtRegisterEmail;
+txtselectiecategorie;Categories produit
+txtselectiefoto;Photos produit
+txtTeaser;Teaser
+txtTitel;Article
+txtToegevoegd;Article ajouté au chariot
+txtUserAlreadyRegistrated;-Cette adresse email est déja régistré
+txtWelkom;Bonjour
+txtWinkelmand;Chariot
+txtWinkelmandLeegmaken;Vider le chariot
+Zoeken;Chercher

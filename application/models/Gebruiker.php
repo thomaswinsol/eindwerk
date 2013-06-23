@@ -34,6 +34,16 @@ class Application_Model_Gebruiker extends My_Model
     
 
     public function getAutocomplete($where=NULL){
+        $idrole=3;
+        // Ophalen id gebruiker
+        $auth = Zend_Auth::getInstance();
+        if ($auth->hasIdentity() ) {
+            $gebruiker= $auth->getIdentity();
+            $idrole= $gebruiker->idrole;
+        }
+        if ($idrole<=2) {
+            $where .=" and idrole<=".(int)$idrole;
+        }
         $user = parent::getAll($where);
 
 	$matches = array();

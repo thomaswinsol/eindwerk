@@ -15,7 +15,7 @@ class Zend_View_Helper_ToonProductstatus extends Zend_View_Helper_Abstract
             $productstatusModel = new Application_Model_Productstatus();
             $productstatus = $productstatusModel->getOne($statusId);
             if (!empty($productstatus)) {
-                return "<div style='margin-left:5px;float:left;'><img alt='' src='/images/promoblok/orange.png'></div><div class='prod-status'>".$productstatus['omschrijving']."</div>";
+                return "<div style='margin-left:5px;float:left;'><img alt='' src='/images/promoblok/orange.png'></div><div class='prod-status'>".$this->view->translate($productstatus['omschrijving'])."</div>";
             }
             return null;
         }

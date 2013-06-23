@@ -19,28 +19,27 @@ class admin_Form_Gebruikerstatus extends My_Form {
             }
         }
 
-
         $elem = $this->createElement('select','status');
-		   	$elem->setLabel("lblstatus")
-			->addMultiOptions(array('1' => 'Actief' , '2' => 'Inactief') )
-                        ->setRequired(true)
-			->setSeparator('');
+	$elem->setLabel("lblstatus")
+	     ->addMultiOptions(array('1' => 'Actief' , '2' => 'Inactief') )
+             ->setRequired(true)
+	     ->setSeparator('');
 	$this->addElement($elem);
 
 
-            $model = new Application_Model_Gebruikerrole();
-            $defaultOptions = array('key'=> 'id', 'value' =>'role');
-            $roles  = $model->buildSelect($defaultOptions,$whererole);
-            $elem = new Zend_Form_Element_Select('idrole');
-            $elem->setLabel('lblrole')
+        $model = new Application_Model_Gebruikerrole();
+        $defaultOptions = array('key'=> 'id', 'value' =>'role');
+        $roles  = $model->buildSelect($defaultOptions,$whererole);
+        $elem = new Zend_Form_Element_Select('idrole');
+        $elem->setLabel('lblrole')
                  ->setMultiOptions($roles)
                  ->addValidator('NotEmpty', TRUE)
                  ->setRequired(true);
-           $this->addElement($elem);
+        $this->addElement($elem);
 
-         $this->setElementDecorators($this->elementDecorators);
+        $this->setElementDecorators($this->elementDecorators);
 
-         // element button
+        // element button
         $this->addElement(new Zend_Form_Element_Button('Opslaan', array(
             'type'=>"submit",
             'label'=>'btnOpslaan',
