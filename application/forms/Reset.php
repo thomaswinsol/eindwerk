@@ -27,7 +27,7 @@ class Application_Form_Reset extends My_Form {
          // element button
         $this->addElement(new Zend_Form_Element_Button('continue', array(
             'type'=>"submit",
-            'label' => 'lbl_continue',
+            'label' => 'lblVerzenden',
             'required'=> false,
             'ignore'=> true,
             'decorators'=>$this->buttonDecorators

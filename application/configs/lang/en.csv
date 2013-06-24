@@ -19,6 +19,7 @@ inhoud;Content
 Italiaans(IT);Italian(IT)
 lblAantal;Quantity
 lblBestellen;Order
+lblbevestigpaswoord;Confirm your password
 lblBTWnummer;VAT-number
 lblCategorie;Categorie
 lbleenheidsprijs;Unit price
@@ -32,6 +33,7 @@ lblGebruikerstatus;Status user
 lblGemeente;Community
 lblindewinkelwagen;add to basket
 lbllabel;label
+lblnieuwpaswoord;New password
 lblPagina;Page
 lblPaswoord;Password
 lblPostcode;Postal code
@@ -42,6 +44,7 @@ lblStraat;Street
 lblTel;Tel
 lblTotaal;Total
 lblUwBestellingen;Your orders
+lblVerzenden;Send
 lblVoornaam;First name
 lblWebsite;Website
 menuCategorie;Categories

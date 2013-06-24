@@ -13,6 +13,7 @@ Frans;Français
 inhoud;Inhoud
 lblAantal;Aantal
 lblBestellen;Bestellen
+lblbevestigpaswoord;Bevestig uw paswoord
 lblBTWnummer;BTW-nummer
 lblCategorie;Categorie
 lbleenheidsprijs;Eenheidsprijs
@@ -26,6 +27,7 @@ lblGebruikerstatus;Status gebruiker
 lblGemeente;Gemeente
 lblindewinkelwagen;in de winkelwagen
 lbllabel;label
+lblnieuwpaswoord;Nieuw paswoord
 lblPagina;Pagina
 lblPaswoord;Paswoord
 lblPostcode;Postcode
@@ -36,6 +38,7 @@ lblStraat;Straat
 lblTel;Tel
 lblTotaal;Totaal
 lblUwBestellingen;Uw bestellingen
+lblVerzenden;Verzenden
 lblVoornaam;Voornaam
 lblWebsite;Website
 menuCategorie;Categorieën
