@@ -131,6 +131,9 @@ class GebruikerController extends My_Controller_Action
                 $data['eId'] = $gebruikerModel->saveIdentifier($gebruiker['id']);
                 $data['email'] = $gebruiker['email'];
                 $data['url']   = $this->getFullUrl() .'/gebruiker/reset/eId/' . $data['eId'];
+                echo "<pre>";
+                print_r($data);
+                die("ok");
                 $this->mail->send($templateName,$data);
                 $this->_helper->redirector('home','index');
             } catch (Exception $e){
