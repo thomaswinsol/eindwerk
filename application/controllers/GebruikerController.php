@@ -149,5 +149,56 @@ class GebruikerController extends My_Controller_Action
         }
         $this->SaveContext();
     }
+
+    public function resetAction(){
+        $this->view->form = new Application_Form_Reset();
+
+        $data = $this->getRequest()->getParams();
+        $save = false;
+
+        $eId = $this->getRequest()->getParam('eId');
+
+        if ($this->getRequest()->isPost()) {
+        //submit
+            $data = $this->_request->getPost();
+            $save = true;
+        }
+        $this->view->data = $data;
+        $gebruikerModel = new Application_Model_Gebruiker();
+        $gebruiker = $gebruikerModel->getOneByField('eId',(string)$eId);
+        if (empty($gebruiker)){
+            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId.'/err/3';
+            $this->_redirect($url);
+            return;
+        }
+        $this->view->user = $gebruiker;
+        if (!$save){
+            return;
+        }
+        if (empty($data['password1'])){
+            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId.'/err/1';
+            $this->_redirect($url);
+            return;
+        }
+        if ($data['password1'] !==$data['password2']){
+            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId.'/err/2';
+            $this->_redirect($url);
+            $this->_helper->redirector('reset',$this->getRequest()->getControllerName(),false,array('eId' => $eId,'err' => 2));
+            return;
+        }
+        //save new password
+        try{
+            $dbFields = array(
+                                    'eId' => null,
+                                    'password' => md5($data['password1']),
+            );
+            $gebruikerModel->update($dbFields,$gebruiker['id']);
+            $this->_helper->redirector('home','index');
+        }
+        catch (Exception $e){
+            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId.'/err/3';
+            $this->_redirect($url);
+        }
+    }
       
 }
