@@ -195,13 +195,16 @@ class GebruikerController extends My_Controller_Action
         try{
             $dbFields = array(
                                     'eId' => null,
-                                    'password' => md5($data['password1']),
+                                    'paswoord' => md5($data['password1']),
             );
             $gebruikerModel->update($dbFields,$gebruiker['id']);
             $this->_helper->redirector('home','index');
         }
         catch (Exception $e){
-            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId.'/err/3';
+            $this->flashMessenger->setNamespace('Errors');
+            $message=$tr->translate('txtResetUpdateNotSucceeded');
+            $this->flashMessenger->addMessage($message);
+            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId;
             $this->_redirect($url);
         }
     }
