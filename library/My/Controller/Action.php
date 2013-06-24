@@ -121,5 +121,11 @@ abstract class My_Controller_Action extends Zend_Controller_Action
          }         
     }
 
+    public function getFullUrl(){
+        $bootstrap = $this->getInvokeArg('bootstrap');
+        $options = $bootstrap->getOptions();
+        return $options['website']['params']['url'];
+    }
+
    
 }

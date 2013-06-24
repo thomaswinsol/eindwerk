@@ -55,13 +55,12 @@ class My_Controller_Plugin_Mail extends Zend_Controller_Plugin_Abstract
      		$mail = new Zend_Mail('ISO-8859-1');
      		$mail->setFrom('thomas.vanhuysse@telenet.be', 'Thomas');
 
-     		$mail->addTo('thomas.vanhuysse@telenet.be', 'Winsol');
+     		$mail->addTo($data['email'], $data['email']);
      		$mail->setHeaderEncoding(Zend_Mime::ENCODING_BASE64);
      		$this->view->data = $data;     	
      		$html = $this->view->render('/mail/lostPassword.phtml');
-     		$result=explode(":::",$html);
-     		$mail->setBodyHtml($result[0],'ISO-8859-1',Zend_Mime::ENCODING_BASE64);
-     		$mail->setSubject($result[1]);
+     		$mail->setBodyHtml($html,'ISO-8859-1',Zend_Mime::ENCODING_BASE64);
+     		$mail->setSubject("Lost Password adv1302.mediacampus.be");
      		$mail->send(); 
      		
      		return TRUE;
