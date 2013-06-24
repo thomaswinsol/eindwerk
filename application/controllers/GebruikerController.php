@@ -132,6 +132,9 @@ class GebruikerController extends My_Controller_Action
                 $data['email'] = $gebruiker['email'];
                 $data['url']   = $this->getFullUrl() .'/gebruiker/reset/eId/' . $data['eId'];                
                 $this->mail->send($templateName,$data);
+                $this->flashMessenger->setNamespace('Errors');
+                $message=$tr->translate('txtEmailResetSend').":".$formData['email'];
+                $this->flashMessenger->addMessage($message);
                 $this->_helper->redirector('home','index');
             } catch (Exception $e){
                 throw $e;
@@ -168,7 +171,7 @@ class GebruikerController extends My_Controller_Action
         $gebruiker = $gebruikerModel->getOneByField('eId',(string)$eId);
         if (empty($gebruiker)){
             $this->flashMessenger->setNamespace('Errors');
-            $message=$tr->translate('txteIdNotfound');
+            $message='eID not found';
             $this->flashMessenger->addMessage($message);
             $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId;
             $this->_redirect($url);
@@ -179,14 +182,14 @@ class GebruikerController extends My_Controller_Action
         }
         if (empty($data['password1'])){
             $this->flashMessenger->setNamespace('Errors');
-            $message=$tr->translate('txtPassword1Empty');
+            $message='Password 1 is required';
             $this->flashMessenger->addMessage($message);
             $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId;
             $this->_redirect($url);
         }
         if ($data['password1'] !==$data['password2']){
             $this->flashMessenger->setNamespace('Errors');
-            $message=$tr->translate('txtPassword2NotSame');
+            $message="the two password fields' values aren't the same." ;
             $this->flashMessenger->addMessage($message);
             $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId;
             $this->_redirect($url);
@@ -194,15 +197,18 @@ class GebruikerController extends My_Controller_Action
         //save new password
         try{
             $dbFields = array(
-                                    'eId' => null,
-                                    'paswoord' => md5($data['password1']),
+                     'eId' => null,
+                     'paswoord' => md5($data['password1']),
             );
             $gebruikerModel->update($dbFields,$gebruiker['id']);
+            $this->flashMessenger->setNamespace('Errors');
+            $message='Reset password succeeded';
+            $this->flashMessenger->addMessage($message);
             $this->_helper->redirector('home','index');
         }
         catch (Exception $e){
             $this->flashMessenger->setNamespace('Errors');
-            $message=$tr->translate('txtResetUpdateNotSucceeded');
+            $message='Reset password not succeeded';
             $this->flashMessenger->addMessage($message);
             $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId;
             $this->_redirect($url);

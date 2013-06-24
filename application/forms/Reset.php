@@ -10,14 +10,14 @@ class Application_Form_Reset extends My_Form {
 
         // element naam
         $this->addElement(new Zend_Form_Element_Password('password1',array(
-            'label'=>"lbl_passwordnew",
+            'label'=>"lblnieuwpaswoord",
             'required'=>true,
             'filters' => array('StringTrim')
             )));
 
         // element naam
         $this->addElement(new Zend_Form_Element_Password('password2',array(
-            'label'=>"lbl_passwordnewconfirm",
+            'label'=>"lblbevestigpaswoord",
             'required'=>true,
             'filters' => array('StringTrim')
             )));
