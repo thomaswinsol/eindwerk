@@ -23,6 +23,8 @@ class Application_Model_Product extends My_Model
 
             $sql->where ('t.code = '."'".$taalcode."'");
             $sql->limit(self::LIMIT);
+            //Producten op inactief niet afabeelden
+            $sql->where ('p.status <> 2 ');
 
             if (!empty($data['status'])) {
                 $sql->where ('p.status = '.(int)$data['status']);
@@ -121,10 +123,10 @@ class Application_Model_Product extends My_Model
                         $p['id']  =trim($p['id']);
         		$p['naam']=trim($p['label']);
         		$p['value'] = trim($p['id']);
-                        if ($p['status']) {
-                            $p['label'] = trim($p['label']);
-                        } else {
+                        if ($p['status']==2) {
                             $p['label'] = "<span style='text-decoration:line-through;'>".trim($p['label'])."</span>";
+                        } else {
+                            $p['label'] = trim($p['label']);
                         }
 			$matches[] = $p;
         }
