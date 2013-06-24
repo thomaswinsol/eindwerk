@@ -127,5 +127,16 @@ abstract class My_Controller_Action extends Zend_Controller_Action
         return $options['website']['params']['url']; 
     }
 
+    private function countbestellingen($gebruiker)
+    {
+        $bestellingheaderModel = new Application_Model_Bestellingheader();
+        $data=$bestellingheaderModel->getAantalBestellingen($gebruiker['id']);
+        $this->context['bestellingen']=null;
+        if (!empty($data)){
+            $this->context['bestellingen']=$data['aantalbestellingen'];
+        }
+        $this->SaveContext();
+    }
+
    
 }

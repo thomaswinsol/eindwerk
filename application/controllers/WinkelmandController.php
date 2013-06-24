@@ -122,6 +122,9 @@ class WinkelmandController extends My_Controller_Action
 
         // Winkelmand leegmaken
         $this->context['winkelmand']=null;
+        $gebruikerModel = new Application_Model_Gebruiker();
+        $gebruiker = $gebruikerModel->getOne($userid);
+        $this->countbestellingen($gebruiker);
         $this->SaveContext();
         $this->_helper->redirector('home', 'index');
     }

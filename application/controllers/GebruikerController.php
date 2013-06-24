@@ -142,16 +142,7 @@ class GebruikerController extends My_Controller_Action
          }
     }
 
-    private function countbestellingen($gebruiker)
-    {
-        $bestellingheaderModel = new Application_Model_Bestellingheader();        
-        $data=$bestellingheaderModel->getAantalBestellingen($gebruiker['id']);
-        $this->context['bestellingen']=null;
-        if (!empty($data)){
-            $this->context['bestellingen']=$data['aantalbestellingen'];            
-        }
-        $this->SaveContext();
-    }
+    
 
     public function resetAction(){
         $this->view->form = new Application_Form_Reset();
