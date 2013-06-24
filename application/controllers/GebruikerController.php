@@ -167,24 +167,29 @@ class GebruikerController extends My_Controller_Action
         $gebruikerModel = new Application_Model_Gebruiker();
         $gebruiker = $gebruikerModel->getOneByField('eId',(string)$eId);
         if (empty($gebruiker)){
-            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId.'/err/3';
+            $this->flashMessenger->setNamespace('Errors');
+            $message=$tr->translate('txteIdNotfound');
+            $this->flashMessenger->addMessage($message);
+            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId;
             $this->_redirect($url);
-            return;
         }
         $this->view->user = $gebruiker;
         if (!$save){
             return;
         }
         if (empty($data['password1'])){
-            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId.'/err/1';
+            $this->flashMessenger->setNamespace('Errors');
+            $message=$tr->translate('txtPassword1Empty');
+            $this->flashMessenger->addMessage($message);
+            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId;
             $this->_redirect($url);
-            return;
         }
         if ($data['password1'] !==$data['password2']){
-            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId.'/err/2';
+            $this->flashMessenger->setNamespace('Errors');
+            $message=$tr->translate('txtPassword2NotSame');
+            $this->flashMessenger->addMessage($message);
+            $url = '/' . $this->getRequest()->getControllerName().'/reset/eId/'.$eId;
             $this->_redirect($url);
-            $this->_helper->redirector('reset',$this->getRequest()->getControllerName(),false,array('eId' => $eId,'err' => 2));
-            return;
         }
         //save new password
         try{
