@@ -59,6 +59,7 @@ txtBestellen;Bestellen
 txtBevestigingBestellingWinkelmand;Druk op OK om de winkelmand te bestellen
 txtCategorie;Categorie
 txtEmailNotFound;-E-mailadres is niet geregistreerd
+txtEmailResetSend;-Een email werd verstuurd om uw paswoord te resetten
 txtExtra;Extra
 txtFoto;Foto
 txtInloggen;Inloggen
@@ -84,3 +85,4 @@ txtUserAlreadyRegistrated;-Dit e-mail adres is reeds geregistreerd
 txtWelkom;Welkom
 txtWinkelmand;Winkelwagen
 txtWinkelmandLeegmaken;Winkelmand leegmaken
+

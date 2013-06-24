@@ -64,6 +64,7 @@ txtBestellen;Commander
 txtBevestigingBestellingWinkelmand;Appuyez OK pour commander le chariot
 txtCategorie;Categorie
 txtEmailNotFound;-Adresse email n'est pas régistré
+txtEmailResetSend;-Vous avez réçu un email pour réinitialiser votre mot de passe
 txtExtra;Extra
 txtFoto;Photo
 txtInloggen;Inloggen
